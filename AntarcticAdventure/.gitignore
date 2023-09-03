@@ -59,6 +59,7 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
+*.unitypackage.meta
 *.app
 
 # Crashlytics generated file
@@ -73,3 +74,6 @@ crashlytics-build.properties
 
 # Editor Only Packages
 /[Aa]ssets/[Pp]ackages/[Ee]ditor
+
+# Terrain Data
+/[Aa]ssets/_[Tt]erain[Aa]uto[Uu]pgrade

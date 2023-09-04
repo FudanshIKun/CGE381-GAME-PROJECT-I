@@ -102,7 +102,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _FresNelPower: 3.8
-    - _FresnelEmissionMutiplier: 20
+    - _FresnelEmissionMutiplier: 50
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: 57f10635385a8a4499197fbfa7b715dd
+guid: e60351f4ba91c0046bd176803b31a7a2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tent
+    second: {fileID: 2100000, guid: e51ab9979dfc89643b021151179cd1a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tent Farbic Black
+    second: {fileID: 2100000, guid: c009ff7522ed2874b87101ae421a9876, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tent Metal
+    second: {fileID: 2100000, guid: 1c24650dc6e71d1439316477b4b30c07, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,6 +3,7 @@ using FluffyUnderware.Curvy.Controllers;
 using UnityEngine;
 
 public class Player : MonoBehaviour{
+	// Private Members
 	private bool IsKnockingBack;
 	private bool IsFalling;
 	private bool IsStumbling;
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour{
 	[SerializeField] private float maxOffset;
 	private SplineController controller { get; set; }
 
+	// MonoBehavior Interface
+#region MonoBehavior
 	private void Awake(){
 		controller = GetComponent<SplineController>();
 	}
@@ -18,7 +21,10 @@ public class Player : MonoBehaviour{
 	private void Update(){
 		Move();
 	}
+	
+#endregion
 
+	// Private Methods
 	private void Move(){
 		if (IsKnockingBack || IsFalling || IsStumbling)
 			return;

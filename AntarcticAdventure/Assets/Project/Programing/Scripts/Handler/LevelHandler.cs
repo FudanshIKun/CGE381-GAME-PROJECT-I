@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.SceneManagement;
 
-public class LevelHandler : Handler<LevelHandler>{
+public sealed class LevelHandler : Handler<LevelHandler>{
 	// Public Members
 	public GameManager.Scenes Level;
 	public int score;

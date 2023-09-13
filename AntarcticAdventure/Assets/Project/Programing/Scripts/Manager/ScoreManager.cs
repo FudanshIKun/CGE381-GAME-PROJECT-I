@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class ScoreManager : Manager{
+public sealed class ScoreManager : Manager{
 	public Dictionary<string, int> HighestScores = new ();
 	private const string ScoreKeyPrefix = "HighestScore_";
 	private static readonly string[] ScenesToExclude = { "MainMenu", "Map" };

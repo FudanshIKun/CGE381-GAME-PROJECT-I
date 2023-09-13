@@ -1,5 +1,3 @@
-﻿namespace Project.Programing.Scripts.Handler{
-	public class MapHandler{
-		
-	}
+﻿public sealed class MapHandler : Handler<MapHandler>{
+	
 }

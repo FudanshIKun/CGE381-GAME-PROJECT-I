@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour{
+public sealed class GameManager : MonoBehaviour{
 	// Public Member
 	public enum Scenes{
 		Prototype,
@@ -76,11 +76,4 @@ public class GameManager : MonoBehaviour{
 	}
 	
 #endregion
-	
-	// Public Method
-	public void LoadMapScene(){
-		
-	}
-	
-	
 }

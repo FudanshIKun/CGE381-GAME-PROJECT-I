@@ -74,6 +74,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Editor Only Packages
+/[Aa]ssetts/[Pp]lugins/
 /[Aa]ssets/[Pp]ackages/[Ee]ditor
 
 # Terrain Data

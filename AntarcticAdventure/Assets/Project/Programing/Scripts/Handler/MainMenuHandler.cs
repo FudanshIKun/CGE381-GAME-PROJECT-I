@@ -1,5 +1,5 @@
 ﻿using System;
 
-public class MainMenuHandler : Handler<MainMenuHandler>{
+public sealed class MainMenuHandler : Handler<MainMenuHandler>{
 	
 }

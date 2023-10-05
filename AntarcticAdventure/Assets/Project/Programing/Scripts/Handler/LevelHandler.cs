@@ -1,24 +1,37 @@
 ﻿using System;
+using FluffyUnderware.Curvy;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public sealed class LevelHandler : Handler<LevelHandler>{
 	// Public Members
+	public Player      Player;
+	public CurvySpline Curve;
 	public GameManager.Scenes Level;
 	public int score;
 
+	// PRIVATE MEMBERS
+	
+	
 	// MonoBehavior Interface
-#region MonoBehavior
 	private void OnEnable(){
 		SceneManager.sceneUnloaded += OnSceneUnloaded;
+	}
+
+	private void Update(){
+		CheckWinConditions();
 	}
 
 	private void OnDisable(){
 		SceneManager.sceneUnloaded -= OnSceneUnloaded;
 	}
-	
-#endregion
 
 	public void OnSceneUnloaded(Scene scene){
-		GameManager.Instance.Get<ScoreManager>().RecordScore(Level, score);
+		ScoreManager.Instance.RecordScore(Level, score);
+	}
+	
+	// PRIVATE MEMBERS
+	private void CheckWinConditions(){
+		
 	}
 }

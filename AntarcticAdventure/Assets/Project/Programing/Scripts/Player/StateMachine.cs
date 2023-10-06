@@ -11,6 +11,7 @@ public sealed class StateMachine{
 	public FallenState  FallenState  { get; }
 	
 	public float speedAcc;
+	public float flyupAcc;
 	public float targetOffset;
 	public int   offsetDir;
 	

@@ -24,6 +24,8 @@ public sealed class Setting{
 	public float floatHeight        { get; private set; } = 2f;
 	[field: SerializeField]
 	public float flyHeight          { get; private set; } = 4f;
+	[field: SerializeField]
+	public float flyupSpeed         { get; private set; } = 1f;
 	[field: SerializeField] 
 	public float flyDuration        { get; private set; } = 3f;
 	[field: SerializeField]

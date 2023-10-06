@@ -13,6 +13,7 @@ public sealed class Player : MonoBehaviour{
 	public bool  IsJumping;
 	public float Speed;
 	public float offset;
+	public float height;
 	public float travelledDst;
 	
 	[field: SerializeField]

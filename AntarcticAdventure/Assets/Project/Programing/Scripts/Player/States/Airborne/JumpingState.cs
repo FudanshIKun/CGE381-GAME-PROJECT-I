@@ -70,9 +70,11 @@ public sealed class JumpingState : AirborneState{
 		if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
 			stateMachine.targetOffset = 0f;
 		player.offset += stateMachine.targetOffset * setting.maxOffset * Time.deltaTime;
+		player.offset = Mathf.Clamp(player.offset, -setting.maxOffset, setting.maxOffset);
+
+		player.height = rb.position.y;
 		
 		player.travelledDst += Time.deltaTime * player.Speed;
-		player.offset = Mathf.Clamp(player.offset, -setting.maxOffset, setting.maxOffset);
 		var point = player.Curve.InterpolateByDistance(player.travelledDst);
 		
 		player.transform.position = new Vector3(point.x + player.offset, rb.position.y, point.z);

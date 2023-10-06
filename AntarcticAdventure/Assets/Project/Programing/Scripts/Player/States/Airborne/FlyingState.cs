@@ -6,7 +6,7 @@ public sealed class FlyingState : AirborneState{
 	}
 	
 	// PRIVATE MEMBERS
-	private bool isFalling;
+	private bool  isFalling;
 
 	// IState INTERFACE
 	public override void OnEnter(){
@@ -15,6 +15,7 @@ public sealed class FlyingState : AirborneState{
 		stateMachine.player.Copter.SetActive(true);
 		rb.useGravity = false;
 		stateMachine.player.StartCoroutine(Landing(stateMachine.player));
+		stateMachine.flyupAcc = 0f;
 	}
 
 	public override void OnUpdate(){
@@ -45,32 +46,43 @@ public sealed class FlyingState : AirborneState{
 			stateMachine.offsetDir = 1;
 		}
 		
+		stateMachine.targetOffset = Mathf.Lerp(stateMachine.targetOffset, stateMachine.offsetDir, setting.offsetAcceleration * Time.deltaTime);
+		if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+			stateMachine.targetOffset = 0f;
+		player.offset += stateMachine.targetOffset * setting.maxOffset * Time.deltaTime;
+		player.offset = Mathf.Clamp(player.offset, -setting.maxOffset, setting.maxOffset);
+		
 		// Speed Calculation
-		var point = stateMachine.player.Curve.InterpolateByDistance(player.travelledDst);
 		if (player.IsFlying){
+			// Height Calculation
+			stateMachine.flyupAcc = setting.flyupSpeed - player.height;
+			player.height += stateMachine.flyupAcc * Time.deltaTime;
+			player.height = Mathf.Clamp(player.height, 0, setting.flyHeight);
+			// Speed Calculation
 			stateMachine.speedAcc = setting.flySpeed - player.Speed;
 			player.Speed += stateMachine.speedAcc * Time.deltaTime;
 			player.Speed = Mathf.Clamp(player.Speed, setting.baseSpeed, setting.maxSpeed);
-			player.transform.position = new Vector3(point.x + player.offset, setting.flyHeight, point.z);
+			player.travelledDst += Time.deltaTime * player.Speed;
+			var point = stateMachine.player.Curve.InterpolateByDistance(player.travelledDst);
+			
+			player.transform.position = new Vector3(point.x + player.offset, player.height, point.z);
 		}
 		else{
+			// Speed Calculation
 			if (Input.GetKey(KeyCode.W))
 				stateMachine.speedAcc = setting.accelerateSpeed - player.Speed;
 			else
 				stateMachine.speedAcc = setting.baseSpeed - player.Speed;
 			
+			player.height = rb.position.y;
 			player.Speed += stateMachine.speedAcc * Time.deltaTime;
 			player.Speed = Mathf.Clamp(player.Speed, setting.baseSpeed, setting.maxSpeed);
+			player.travelledDst += Time.deltaTime * player.Speed;
+			var point = stateMachine.player.Curve.InterpolateByDistance(player.travelledDst);
+			
 			player.transform.position = new Vector3(point.x + player.offset, rb.position.y, point.z);
 		}
 		
-		stateMachine.targetOffset = Mathf.Lerp(stateMachine.targetOffset, stateMachine.offsetDir, setting.offsetAcceleration * Time.deltaTime);
-		if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-			stateMachine.targetOffset = 0f;
-		player.offset += stateMachine.targetOffset * setting.maxOffset * Time.deltaTime;
-		
-		player.travelledDst += Time.deltaTime * player.Speed;
-		player.offset = Mathf.Clamp(player.offset, -setting.maxOffset, setting.maxOffset);
 		player.transform.rotation = Quaternion.LookRotation(player.Curve.GetTangentByDistance(player.travelledDst));
 	}
 

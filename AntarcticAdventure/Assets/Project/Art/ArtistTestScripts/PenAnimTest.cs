@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class PenAnim : MonoBehaviour
+public class PenAnimTest : MonoBehaviour
 {
-    public Rigidbody rb;
+    Rigidbody rb;
     public float jumpForce;
     public Animator anim;
     public float groundPosition;
@@ -17,6 +16,7 @@ public class PenAnim : MonoBehaviour
     public float copterLerpSpeed;
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -50,11 +50,16 @@ public class PenAnim : MonoBehaviour
         //Stumble Control
         if (Input.GetKeyDown(KeyCode.E))
         {
-            play_stumble_animation();
+            play_stumble_animation(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            play_stumble_animation(false);
         }
 
         //Win Control
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             anim.SetBool("is_win", true);
             play_jump_animation();
@@ -93,6 +98,9 @@ public class PenAnim : MonoBehaviour
                 play_impact_animation();
             }
             is_ground = true;
+            rb.velocity = Vector3.zero;
+            scaleRoot.transform.position =
+                new Vector3(scaleRoot.transform.position.x, groundPosition, scaleRoot.transform.position.z);
             anim.SetBool("is_jump", false);
             anim.SetBool("is_stumble", false);
         }
@@ -107,7 +115,6 @@ public class PenAnim : MonoBehaviour
     {
         rb.velocity = new Vector3(0, force, 0);
     }
-    //Copy This Region
     #region Scale Animation
     [Header("Procedural Animation")]
     public Transform scaleRoot;
@@ -142,10 +149,11 @@ public class PenAnim : MonoBehaviour
     {
         StartCoroutine(play_aniamtion_event(impactCurve, impactInterval, impactWeight));
     }
-    void play_stumble_animation()
+    void play_stumble_animation(bool rightSide)
     {
         play_jump_animation();
         jump(stumbleJumpForce);
+        anim.SetBool("is_stumble_right", rightSide);
         anim.SetBool("is_stumble", true);
     }
     IEnumerator play_aniamtion_event(AnimationCurve curve, float interval, float weight)

@@ -2,7 +2,7 @@
 	protected AirborneState(StateMachine stateMachine, Setting setting) : base(stateMachine, setting){
 	}
 	
-	// IState INTERFACE
+	// State INTERFACE
 	public override void OnEnter(){
 		base.OnEnter();
 		stateMachine.player.IsAirborne = true;

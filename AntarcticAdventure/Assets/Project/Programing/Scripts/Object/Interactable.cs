@@ -7,12 +7,15 @@ public abstract class Interactable : MonoBehaviour{
 	}
 	protected abstract void OnInteract(Player player);
 	
+	// MonoBehavior INTERFACE
 	private void OnCollisionEnter(Collision other){
 		if (other.gameObject.CompareTag("Player")){
 			if (hasInteracted)
 				return;
-			
-			OnInteract(other.gameObject.GetComponent<Player>());
+
+			var player = other.gameObject.GetComponent<Player>();
+			Debug.Log("Player has interacted with " + GetType().Name);
+			OnInteract(player);
 			hasInteracted = true;
 		}
 	}

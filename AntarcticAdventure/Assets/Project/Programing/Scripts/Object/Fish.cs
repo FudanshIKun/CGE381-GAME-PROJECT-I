@@ -5,7 +5,10 @@ using UnityEngine;
 
 public sealed class Fish : Interactable{
 	// PUBLIC MEMBERS
-	[Header("Setting")]
+	[Header("Status")]
+	public bool hasCollected;
+	[Header("Setting")] 
+	public bool      jumpOnStart;
 	public Transform dropTransform;
 	
 	public int   plusScore    = 5;
@@ -23,13 +26,20 @@ public sealed class Fish : Interactable{
 		animator ??= GetComponent<Animator>();
 	}
 
+	private void Start(){
+		if (jumpOnStart)
+			Jump();
+	}
+
 	// Interactable INTERFACE
 	public override void OnPlayerApprochead(){
 		Jump();
 	}
 
 	protected override void OnInteract(Player player){
+		hasCollected = true;
 		LevelHandler.Instance.score += plusScore;
+		LevelHandler.Instance.OnFishContact(this);
 		Destroy(gameObject);
 	}
 	
@@ -37,10 +47,10 @@ public sealed class Fish : Interactable{
 	 private void Jump(){
 		Debug.Log("A fish has jump from the hole!");
 		gameObject.transform.DOJump(dropTransform.position, jumpPower, jumpAmount, jumpDuration);
-		StartCoroutine(Destroy());
+		StartCoroutine(SelfDestroy());
 	 }
 
-	 private IEnumerator Destroy(){
+	 private IEnumerator SelfDestroy(){
 		 yield return new WaitForSeconds(destroyTimer);
 		 Destroy(gameObject);
 	 }

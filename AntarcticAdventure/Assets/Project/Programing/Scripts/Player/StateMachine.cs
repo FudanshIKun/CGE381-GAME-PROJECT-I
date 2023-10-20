@@ -4,14 +4,16 @@ using UnityEngine;
 [Serializable]
 public sealed class StateMachine{
 	// PUBLIC MEMBERS
-	public Player       player       { get; }
-	public RunningState RunningState { get; }
-	public JumpingState JumpingState { get; }
-	public FlyingState  FlyingState  { get; }
-	public FallenState  FallenState  { get; }
+	public Player         player         { get; }
+	public RunningState   RunningState   { get; }
+	public JumpingState   JumpingState   { get; }
+	public FlyingState    FlyingState    { get; }
+	public StumblingState StumblingState { get; }
+	public FallenState    FallenState    { get; }
+	public FinishedState  FinishedState  { get; }
 	
 	public float speedAcc;
-	public float flyupAcc;
+	public float flyUpAcc;
 	public float targetOffset;
 	public int   offsetDir;
 	
@@ -26,11 +28,14 @@ public sealed class StateMachine{
 		RunningState = new RunningState(this, setting);
 		JumpingState = new JumpingState(this, setting);
 		FlyingState = new FlyingState(this, setting);
+		StumblingState = new StumblingState(this, setting);
 		FallenState = new FallenState(this, setting);
+		FinishedState = new FinishedState(this, setting);
 	}
 
 	// PUBLIC METHODS
 	public void OnStart(){
+		Debug.Log(GetType() + ".OnStart()");
 		ChangeState(RunningState);
 	}
 	

@@ -6,15 +6,17 @@ public abstract class State : IState{
 		this.stateMachine = stateMachine;
 		tf = stateMachine.player.transform;
 		rb = stateMachine.player.RB;
+		animation = stateMachine.player.AnimationController;
 	}
 	
 	// PROTECTED MEMBERS
-	protected readonly StateMachine stateMachine;
-	protected readonly Setting      setting;
-	protected          Transform    tf { get; }
-	protected          Rigidbody    rb { get; }
+	protected readonly StateMachine    stateMachine;
+	protected readonly Setting         setting;
+	protected          Transform       tf        { get; }
+	protected          Rigidbody       rb        { get; }
+	protected          PlayerAnimation animation { get; }
 	
-	//IState INTERFACE
+	// State INTERFACE
 	public virtual void OnEnter(){
 		Debug.Log($"Player OnEnter {GetType().Name} state.");
 	}

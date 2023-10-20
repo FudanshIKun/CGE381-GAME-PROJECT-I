@@ -5,15 +5,23 @@ public sealed class RunningState : GroundedState{
 	}
 
 	public override void OnEnter(){
+		base.OnEnter();
 		rb.useGravity = false;
 		rb.velocity = Vector3.zero;
+		animation.StartRunning();
 	}
 
-	// IState INTERFACE
+	// State INTERFACE
 	public override void OnUpdate(){
 		base.OnUpdate();
 		Move(stateMachine.player);
 		Jump();
+		animation.RunningBlending(stateMachine.offsetDir);
+	}
+
+	public override void OnExit(){
+		base.OnExit();
+		animation.StopRunning();
 	}
 
 	// PRIVATE METHODS
@@ -38,7 +46,7 @@ public sealed class RunningState : GroundedState{
 			}
 
 			player.Speed += stateMachine.speedAcc * Time.deltaTime;
-			player.Speed = Mathf.Clamp(stateMachine.player.Speed, setting.baseSpeed, setting.maxSpeed);
+			player.Speed = Mathf.Clamp(player.Speed, setting.baseSpeed, setting.maxSpeed);
 		}
 		
 		// Offset Calculation
@@ -50,15 +58,18 @@ public sealed class RunningState : GroundedState{
 			Debug.Log("Moving right");
 			stateMachine.offsetDir = 1;
 		}
-		
+		else{
+			stateMachine.offsetDir = 0;
+		}
+
 		stateMachine.targetOffset = Mathf.Lerp(stateMachine.targetOffset, stateMachine.offsetDir, setting.offsetAcceleration * Time.deltaTime);
 		if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
 			stateMachine.targetOffset = 0f;
 		player.offset += stateMachine.targetOffset * setting.maxOffset * Time.deltaTime;
 		
-		player.travelledDst += Time.deltaTime * stateMachine.player.Speed;
-		player.offset = Mathf.Clamp(stateMachine.player.offset, -setting.maxOffset, setting.maxOffset);
-		var point = stateMachine.player.Curve.InterpolateByDistance(stateMachine.player.travelledDst);
+		player.travelledDst += Time.deltaTime * player.Speed;
+		player.offset = Mathf.Clamp(player.offset, -setting.maxOffset, setting.maxOffset);
+		var point = player.Curve.InterpolateByDistance(player.travelledDst);
 		var floating = FloatOnGround();
 		
 		player.transform.position = new Vector3(point.x + player.offset, floating, point.z);

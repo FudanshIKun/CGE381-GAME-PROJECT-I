@@ -1,16 +1,18 @@
-﻿using System;
-using FluffyUnderware.Curvy;
+﻿using FluffyUnderware.Curvy;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerAnimation))]
 public sealed class Player : MonoBehaviour{
 	// PUBLIC MEMBERS
 	[Header("Status")]
 	public bool  IsGrounded;
 	public bool  IsAirborne;
-	public bool  IsKnocked;
+	public bool  IsStumbling;
 	public bool  IsFallen;
 	public bool  IsFlying;
 	public bool  IsJumping;
+	public bool  IsFinishing;
+	public bool  HasFinished;
 	public float Speed;
 	public float offset;
 	public float height;
@@ -21,7 +23,7 @@ public sealed class Player : MonoBehaviour{
 	[field: SerializeField]
 	public Rigidbody RB { get; set; }
 	[field: SerializeField]
-	public Animator Animator { get; set; }
+	public PlayerAnimation AnimationController { get; set; }
 	[field: SerializeField]
 	public CurvySpline Curve { get; set; }
 	[field: SerializeField]
@@ -36,16 +38,16 @@ public sealed class Player : MonoBehaviour{
 	// MonoBehavior Interface
 	private void OnValidate(){
 		RB ??= GetComponent<Rigidbody>();
-		Animator ??= GetComponent<Animator>();
+		AnimationController ??= GetComponent<PlayerAnimation>();
 		BodyCollider ??= GetComponent<CapsuleCollider>();
 		GroundCollider ??= GetComponent<BoxCollider>();
 	}
 
 	private void Awake(){
-		RB = GetComponent<Rigidbody>();
-		Animator = GetComponent<Animator>();
-		BodyCollider = GetComponent<CapsuleCollider>();
-		GroundCollider = GetComponent<BoxCollider>();
+		RB ??= GetComponent<Rigidbody>();
+		AnimationController ??= GetComponent<PlayerAnimation>();
+		BodyCollider ??= GetComponent<CapsuleCollider>();
+		GroundCollider ??= GetComponent<BoxCollider>();
 		StateMachine = new StateMachine(this, Setting);
 	}
 

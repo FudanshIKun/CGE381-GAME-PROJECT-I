@@ -8,14 +8,15 @@ public sealed class FlyingState : AirborneState{
 	// PRIVATE MEMBERS
 	private bool  isFalling;
 
-	// IState INTERFACE
+	// State INTERFACE
 	public override void OnEnter(){
 		base.OnEnter();
 		stateMachine.player.IsFlying = true;
 		stateMachine.player.Copter.SetActive(true);
 		rb.useGravity = false;
 		stateMachine.player.StartCoroutine(Landing(stateMachine.player));
-		stateMachine.flyupAcc = 0f;
+		stateMachine.flyUpAcc = 0f;
+		animation.StartFlying();
 	}
 
 	public override void OnUpdate(){
@@ -27,11 +28,13 @@ public sealed class FlyingState : AirborneState{
 		base.OnExit();
 		stateMachine.player.IsFlying = false;
 		rb.velocity = Vector3.zero;
+		animation.StopFlying();
 	}
 	
 	protected override void OnGroundContact(){
 		base.OnGroundContact();
 		stateMachine.ChangeState(stateMachine.RunningState);
+		animation.PlayImpactAnimation();
 	}
 
 	// PRIVATE METHODS
@@ -52,11 +55,11 @@ public sealed class FlyingState : AirborneState{
 		player.offset += stateMachine.targetOffset * setting.maxOffset * Time.deltaTime;
 		player.offset = Mathf.Clamp(player.offset, -setting.maxOffset, setting.maxOffset);
 		
-		// Speed Calculation
+		
 		if (player.IsFlying){
 			// Height Calculation
-			stateMachine.flyupAcc = setting.flyupSpeed - player.height;
-			player.height += stateMachine.flyupAcc * Time.deltaTime;
+			stateMachine.flyUpAcc = setting.flyupSpeed - player.height;
+			player.height += stateMachine.flyUpAcc * Time.deltaTime;
 			player.height = Mathf.Clamp(player.height, 0, setting.flyHeight);
 			// Speed Calculation
 			stateMachine.speedAcc = setting.flySpeed - player.Speed;
@@ -68,13 +71,15 @@ public sealed class FlyingState : AirborneState{
 			player.transform.position = new Vector3(point.x + player.offset, player.height, point.z);
 		}
 		else{
+			// Height Calculation
+			player.height = rb.position.y;
+			
 			// Speed Calculation
 			if (Input.GetKey(KeyCode.W))
 				stateMachine.speedAcc = setting.accelerateSpeed - player.Speed;
 			else
 				stateMachine.speedAcc = setting.baseSpeed - player.Speed;
 			
-			player.height = rb.position.y;
 			player.Speed += stateMachine.speedAcc * Time.deltaTime;
 			player.Speed = Mathf.Clamp(player.Speed, setting.baseSpeed, setting.maxSpeed);
 			player.travelledDst += Time.deltaTime * player.Speed;
@@ -92,9 +97,5 @@ public sealed class FlyingState : AirborneState{
 		player.IsFlying = false;
 		rb.useGravity = true;
 		player.Copter.SetActive(false);
-	}
-	
-	private void OnFall(Player player){
-		
 	}
 }

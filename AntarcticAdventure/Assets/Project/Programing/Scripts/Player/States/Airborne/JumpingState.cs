@@ -13,6 +13,7 @@ public sealed class JumpingState : AirborneState{
 		stateMachine.player.IsJumping = true;
 		rb.useGravity = true;
 		rb.velocity = new Vector3(rb.velocity.x, setting.jumpVelocity, rb.velocity.z);
+		animation.StartJumping();
 	}
 
 	public override void OnUpdate(){
@@ -24,11 +25,13 @@ public sealed class JumpingState : AirborneState{
 		base.OnExit();
 		stateMachine.player.IsJumping = false;
 		rb.velocity = Vector3.zero;
+		animation.StopJumping();
 	}
 	
 	protected override void OnGroundContact(){
 		base.OnGroundContact();
 		stateMachine.ChangeState(stateMachine.RunningState);
+		animation.PlayImpactAnimation();
 	}
 	
 	// PRIVATE METHODS
@@ -79,9 +82,5 @@ public sealed class JumpingState : AirborneState{
 		
 		player.transform.position = new Vector3(point.x + player.offset, rb.position.y, point.z);
 		player.transform.rotation = Quaternion.LookRotation(player.Curve.GetTangentByDistance(player.travelledDst));
-	}
-
-	private void OnFall(Player player){
-		
 	}
 }

@@ -4,7 +4,7 @@ public abstract class GroundedState : State{
 	protected GroundedState(StateMachine stateMachine, Setting setting) : base(stateMachine, setting){
 	}
 	
-	// IState INTERFACE
+	// State INTERFACE
 	public override void OnEnter(){
 		base.OnEnter();
 		stateMachine.player.IsGrounded = true;
@@ -25,6 +25,7 @@ public abstract class GroundedState : State{
 			// Adjust the player's position to float above the ground.
 			return hit.point.y + setting.floatHeight;
 		}
+		
 		return 0;
 	}
 }

@@ -20,7 +20,6 @@ public sealed class Hole : MonoBehaviour, IComparable<Hole>{
         if (arr.Length != 0){
             foreach (var interactable in arr){
                 WhenPlayerApprochead.AddListener(interactable.OnPlayerApprochead);
-                Debug.Log(interactable.name + "'s interaction event has been added");
             }
         }
     }

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fish
   layers:
   - Default
   - TransparentFX
@@ -11,11 +12,11 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Obstacle
+  - PickUp
+  - Hole
+  - Destination
   - 
   - 
   - 

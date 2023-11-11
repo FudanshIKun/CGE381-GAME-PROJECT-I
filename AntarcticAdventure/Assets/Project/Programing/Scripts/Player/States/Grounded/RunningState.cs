@@ -4,14 +4,14 @@ public sealed class RunningState : GroundedState{
 	public RunningState(StateMachine stateMachine, Setting setting) : base(stateMachine, setting){
 	}
 
+	// State INTERFACE
 	public override void OnEnter(){
 		base.OnEnter();
 		rb.useGravity = false;
 		rb.velocity = Vector3.zero;
 		animation.StartRunning();
 	}
-
-	// State INTERFACE
+	
 	public override void OnUpdate(){
 		base.OnUpdate();
 		Move(stateMachine.player);

@@ -5,6 +5,7 @@ using UnityEngine;
 public sealed class StateMachine{
 	// PUBLIC MEMBERS
 	public Player         player         { get; }
+	public IdlingState    IdlingState    { get; }
 	public RunningState   RunningState   { get; }
 	public JumpingState   JumpingState   { get; }
 	public FlyingState    FlyingState    { get; }
@@ -18,8 +19,8 @@ public sealed class StateMachine{
 	public int   offsetDir;
 	
 	// PRIVATE MEMBERS
-	private IState previousState { get; set; }
-	private IState currentState  { get; set; }
+	public IState previousState { get; private set; }
+	public IState currentState  { get; private set; }
 	
 	// PROTECTED METHODS
 	public StateMachine(Player player, Setting setting){
@@ -36,7 +37,7 @@ public sealed class StateMachine{
 	// PUBLIC METHODS
 	public void OnStart(){
 		Debug.Log(GetType() + ".OnStart()");
-		ChangeState(RunningState);
+		
 	}
 	
 	public void OnFixedUpdate(){

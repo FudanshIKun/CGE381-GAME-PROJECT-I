@@ -1,3 +1,3 @@
-﻿public class SoundHandler : Handler<SoundHandler>{
+﻿public sealed class SoundHandler : Handler<SoundHandler>{
 		
 }

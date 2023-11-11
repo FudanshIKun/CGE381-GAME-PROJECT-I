@@ -2,9 +2,8 @@
 using UnityEngine;
 
 public sealed class GameManager : MonoBehaviour{
-	// PUBLIC MEMBERS
-	public static GameManager Instance{
-		get{
+	public static GameManager Instance {
+	get{
 			if (instance == null){
 				instance = FindObjectOfType<GameManager>();
 				if (instance == null){
@@ -17,12 +16,18 @@ public sealed class GameManager : MonoBehaviour{
 		}
 	}
 	
+	
 	// PRIVATE MEMBERS
 	private static GameManager instance;
 	
 	
 	// MonoBehavior Interface
 	private void Awake(){
+		Initialize();
+	}
+	
+	// PRIVATE METHODS
+	private void Initialize(){
 		if (instance != null && instance != this){
 			Destroy(gameObject);
 			return;
@@ -37,15 +42,15 @@ public sealed class GameManager : MonoBehaviour{
 		Prototype,
 		MainMenu,
 		Map,
-		Level1,
-		Level2,
-		Level3,
-		Level4,
-		Level5,
-		Level6,
-		Level7,
-		Level8,
-		Level9,
-		Level10
+		Level1  = 0,
+		Level2  = 1,
+		Level3  = 2,
+		Level4  = 3,
+		Level5  = 4,
+		Level6  = 5,
+		Level7  = 6,
+		Level8  = 7,
+		Level9  = 8,
+		Level10 = 9
 	}
 }

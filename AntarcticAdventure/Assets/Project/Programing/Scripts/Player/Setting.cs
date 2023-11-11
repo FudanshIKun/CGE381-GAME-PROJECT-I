@@ -35,11 +35,11 @@ public sealed class Setting{
 	[field: SerializeField] 
 	public float stumblingDuration    { get; private set; } = 1.5f;
 	[field: SerializeField] 
-	public int stumblingJumpAmount    { get; private set; } = 2;
-	[field: SerializeField] 
 	public float toFinishingDuration  { get; private set; } = 10;
 	[field: SerializeField] 
-	public float fishCollectingRadius { get; private set; } = 1f;
+	public float fallenTranslateDuration { get; private set; } = 1f;
+	[field: SerializeField] 
+	public float jumpOffTranslateDuration { get; private set; } = 1f;
 	[field: SerializeField]
 	public LayerMask groundLayer      { get; private set; }
 	[field: SerializeField]

@@ -6,17 +6,18 @@ public sealed class Player : MonoBehaviour{
 	// PUBLIC MEMBERS
 	[Header("Status")]
 	public bool  IsGrounded;
-	public bool  IsAirborne;
-	public bool  IsStumbling;
-	public bool  IsFallen;
-	public bool  IsFlying;
-	public bool  IsJumping;
-	public bool  IsFinishing;
-	public bool  HasFinished;
-	public float Speed;
-	public float offset;
-	public float height;
-	public float travelledDst;
+	public bool   IsAirborne;
+	public bool   IsStumbling;
+	public bool   IsFallen;
+	public bool   IsFlying;
+	public bool   IsJumping;
+	public bool   IsFinishing;
+	public bool   HasFinished;
+	public float  Speed;
+	public float  offset;
+	public float  height;
+	public float  travelledDst;
+	public Fallen currentFallen;
 	
 	[field: SerializeField]
 	public GameObject Copter { get; set; }
@@ -35,6 +36,11 @@ public sealed class Player : MonoBehaviour{
 	[field: SerializeField]
 	public Setting Setting { get; set; }
 
+	// PUBLIC METHODS
+	public void StartRunning(){
+		StateMachine.ChangeState(StateMachine.RunningState);
+	}
+	
 	// MonoBehavior Interface
 	private void OnValidate(){
 		RB ??= GetComponent<Rigidbody>();

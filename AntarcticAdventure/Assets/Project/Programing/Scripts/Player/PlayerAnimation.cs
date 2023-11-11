@@ -40,6 +40,7 @@ public sealed class PlayerAnimation : MonoBehaviour{
 	private static readonly int IsWin          = Animator.StringToHash("is_win");
 	private static readonly int IsStumbleRight = Animator.StringToHash("is_stumble_right");
 	private static readonly int IsStumble      = Animator.StringToHash("is_stumble");
+	private static readonly int IsInHole       = Animator.StringToHash("is_in_hole");
 
 	// MonoBehavior INTERFACE
 	private void OnValidate(){
@@ -111,16 +112,29 @@ public sealed class PlayerAnimation : MonoBehaviour{
 			Animator.SetBool(IsWin, true);
 	}
 
+	public void StartHanging(){
+		if (playAnimation)
+			Animator.SetBool(IsInHole, true);
+	}
+
+	public void StopHanging(){
+		if(playAnimation)
+			Animator.SetBool(IsInHole, false);
+	}
+
+	public void StartJumpOff(){
+		if (playAnimation)
+			Animator.SetBool(IsJump, true);
+	}
+
 	public void PlayImpactAnimation(){
 		if (playAnimation)
 			StartCoroutine(PlayAnimationCurve(impactCurve, impactInterval, impactWeight));
 	}
 	
 	// PRIVATE METHODS
-	private float LerpWithoutClamp (float a, float b, float t) => a + (b - a) * t;
-	
 	private void SetScale(float yScale){
-		var xScale = LerpWithoutClamp(1, (1 / yScale), xScaleWeight);
+		var xScale = Utility.LerpWithoutClamp(1, (1 / yScale), xScaleWeight);
 		ScaleRoot.transform.localScale = new Vector3(xScale, yScale, 1);
 	}
 	
@@ -129,7 +143,7 @@ public sealed class PlayerAnimation : MonoBehaviour{
 		while(elapseTime < interval){
 			elapseTime += Time.deltaTime;
 			var value = curve.Evaluate(elapseTime / interval);
-			var weightedValue = LerpWithoutClamp(1, value, weight);
+			var weightedValue = Utility.LerpWithoutClamp(1, value, weight);
 			SetScale(weightedValue);
 			yield return null;
 		}

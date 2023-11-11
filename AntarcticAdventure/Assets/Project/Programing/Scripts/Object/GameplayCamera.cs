@@ -1,14 +1,12 @@
 ﻿using System;
+using Cinemachine;
 using UnityEngine;
 
 [Serializable]
 public sealed class GameplayCamera{
-	public GameplayCamera(Camera camera){
-		this.camera = camera;
-	}
-	
 	// PUBLIC MEMBERS
-	public Camera camera;
+	[field: SerializeField]
+	public CinemachineVirtualCamera VirtualCamera { get; private set; }
 	
 	[SerializeField] 
 	public Player player;
@@ -19,11 +17,11 @@ public sealed class GameplayCamera{
 	public void Move(){
 		var position = player.Curve.InterpolateByDistance(player.travelledDst);
 		var offset = setting.offset;
-		camera.transform.position = new Vector3(position.x + offset.x, position.y + offset.y, position.z + offset.z);
+		VirtualCamera.transform.position = new Vector3(position.x + offset.x, position.y + offset.y, position.z + offset.z);
 	}
 
 	public void Rotate(){
-		camera.transform.rotation = Quaternion.LookRotation(new Vector3(camera.transform.rotation.x, player.transform.rotation.y, camera.transform.rotation.z));
+		VirtualCamera.transform.rotation = Quaternion.LookRotation(new Vector3(VirtualCamera.transform.rotation.x, player.transform.rotation.y, VirtualCamera.transform.rotation.z));
 	}
 	
 	[Serializable]

@@ -102,13 +102,13 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _FresNelPower: 3.8
-    - _FresnelEmissionMutiplier: 2.5
+    - _FresnelEmissionMutiplier: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _NormalScale: 1
-    - _NormalStrength: 0.25
+    - _NormalScale: 0.5
+    - _NormalStrength: 0.5
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0

@@ -3,13 +3,14 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public sealed class Fish : Interactable{
 	// PUBLIC MEMBERS
 	[Header("Status")]
 	public bool hasCollected;
 	[Header("Setting")] 
-	public bool      jumpOnStart;
 	public Transform dropTransform;
+	public float dropOffset;
 	
 	public int   plusScore    = 5;
 	public float jumpPower    = 1;
@@ -18,9 +19,14 @@ public sealed class Fish : Interactable{
 	public float destroyTimer = 5f;
 	
 	// MonoBehavior INTERFACE
-	private void Start(){
-		if (jumpOnStart)
-			Jump();
+	private void Update(){
+		if (Application.isEditor && !Application.isPlaying){
+			if (dropTransform == null){
+				dropTransform = Instantiate(new GameObject("Fish's drop transform"), transform.position, Quaternion.identity, transform).GetComponent<Transform>();
+			}else
+				dropTransform.position = new Vector3(transform.position.x, 0, transform.position.z) 
+				                         + transform.parent.right * dropOffset;
+		}
 	}
 
 	// Interactable INTERFACE

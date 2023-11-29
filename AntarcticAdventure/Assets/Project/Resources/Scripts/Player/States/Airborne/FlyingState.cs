@@ -70,7 +70,7 @@ public sealed class FlyingState : AirborneState{
 			player.travelledDst += Time.deltaTime * player.Speed;
 			var point = stateMachine.player.Curve.InterpolateByDistance(player.travelledDst);
 			
-			player.transform.position = new Vector3(point.x + player.offset, player.height, point.z);
+			player.transform.position = new Vector3(point.x, player.height, point.z) + player.transform.right * player.offset;
 		}
 		else{
 			// Height Calculation
@@ -87,7 +87,7 @@ public sealed class FlyingState : AirborneState{
 			player.travelledDst += Time.deltaTime * player.Speed;
 			var point = stateMachine.player.Curve.InterpolateByDistance(player.travelledDst);
 			
-			player.transform.position = new Vector3(point.x + player.offset, rb.position.y, point.z);
+			player.transform.position = new Vector3(point.x, rb.position.y, point.z) + player.transform.right * player.offset;
 		}
 		
 		player.transform.rotation = Quaternion.LookRotation(player.Curve.GetTangentByDistance(player.travelledDst));

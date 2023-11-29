@@ -14,12 +14,12 @@ public sealed class StateMachine{
 	public FallenState    FallenState    { get; }
 	public FinishedState  FinishedState  { get; }
 	
+	public bool  debugState;
 	public float speedAcc;
 	public float flyUpAcc;
 	public float targetOffset;
 	public int   offsetDir;
 	
-	// PRIVATE MEMBERS
 	public IState previousState { get; private set; }
 	public IState currentState  { get; private set; }
 	
@@ -37,7 +37,6 @@ public sealed class StateMachine{
 
 	// PUBLIC METHODS
 	public void OnStart(){
-		Debug.Log(GetType() + ".OnStart()");
 		ChangeState(IdlingState);
 	}
 	

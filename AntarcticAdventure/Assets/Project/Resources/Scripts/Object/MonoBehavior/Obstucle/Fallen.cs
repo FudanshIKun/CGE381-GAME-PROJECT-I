@@ -45,7 +45,9 @@ public sealed class Fallen : Interactable{
 				var point = Curve.GetNearestPointTF(transform.position);
 				var pos = Curve.Interpolate(point);
 				var rot = Curve.GetTangent(point);
-				fallTransform.position = new Vector3(pos.x + parentHole.offset, parentHole.transform.position.y + fallOffset.y, pos.z + fallOffset.z);
+				fallTransform.position = new Vector3(pos.x, parentHole.transform.position.y + fallOffset.y, pos.z)
+				                         + transform.right * parentHole.offset 
+				                         + transform.forward * fallOffset.z;
 				fallTransform.rotation = Quaternion.LookRotation(rot);
 			}
 
@@ -53,7 +55,9 @@ public sealed class Fallen : Interactable{
 				var point = Curve.GetNearestPointTF(transform.position);
 				var pos = Curve.Interpolate(point);
 				var rot = Curve.GetTangent(point);
-				jumpOffTransform.position = new Vector3(pos.x + parentHole.offset, parentHole.transform.position.y + jumpOffset.y, pos.z + jumpOffset.z);
+				jumpOffTransform.position = new Vector3(pos.x, parentHole.transform.position.y + jumpOffset.y, pos.z)
+				                            + transform.right * parentHole.offset 
+				                            + transform.forward * jumpOffset.z;
 				jumpOffTransform.rotation = Quaternion.LookRotation(rot);
 			}
 		}
@@ -63,7 +67,7 @@ public sealed class Fallen : Interactable{
 	}
 
 	protected override void OnInteract(Player player){
-		if (player.StateMachine.currentState != player.StateMachine.FlyingState)
+		if (player.StateMachine.currentState == player.StateMachine.FlyingState)
 			return;
 		
 		Debug.Log("[Player 0] fall into " + gameObject.name);
@@ -71,10 +75,14 @@ public sealed class Fallen : Interactable{
 		var point = Curve.GetNearestPointTF(transform.position);
 		var pos = Curve.Interpolate(point);
 		var rot = Curve.GetTangent(point);
-		fallTransform.position = new Vector3(pos.x + player.offset, parentHole.transform.position.y + fallOffset.y, pos.z + fallOffset.z);
-		jumpOffTransform.position = new Vector3(pos.x + player.offset, parentHole.transform.position.y + jumpOffset.y, pos.z + jumpOffset.z);
-		fallTransform.rotation = Quaternion.LookRotation(rot);
-		jumpOffTransform.rotation = Quaternion.LookRotation(rot);
+		fallTransform.position = new Vector3(pos.x, parentHole.transform.position.y + fallOffset.y, pos.z) 
+		                         + transform.right * player.offset 
+		                         + transform.forward * fallOffset.z;
+		jumpOffTransform.position = new Vector3(pos.x, parentHole.transform.position.y + jumpOffset.y, pos.z)
+		                            + transform.right * player.offset 
+		                            + transform.forward * jumpOffset.z;
+		fallTransform.rotation = Quaternion.LookRotation(Curve.GetTangentFast(Curve.GetNearestPointTF(fallTransform.position)));
+		jumpOffTransform.rotation = Quaternion.LookRotation(Curve.GetTangentFast(Curve.GetNearestPointTF(jumpOffTransform.position)));
 		
 		player.currentFallen = this;
 		player.StateMachine.ChangeState(player.StateMachine.FallenState);

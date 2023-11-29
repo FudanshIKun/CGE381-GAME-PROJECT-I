@@ -11,7 +11,10 @@ public sealed class Stumble : Interactable{
 	}
 
 	private void StumblePlayer(Player player){
-		player.AnimationController.stumbleSide = player.transform.position.x > transform.position.x;
+		var playerPosition = Vector3.Dot(player.transform.position - transform.position, transform.right);
+		var stumblePosition = Vector3.Dot(transform.position - transform.position,       transform.right);
+		player.AnimationController.stumbleSide = playerPosition > stumblePosition;
+		player.AnimationController.stumbleSide = playerPosition > stumblePosition;
 		player.StateMachine.ChangeState(player.StateMachine.StumblingState);
 	}
 }

@@ -4,20 +4,21 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerAnimation))]
 public sealed class Player : MonoBehaviour{
 	// PUBLIC MEMBERS
-	public bool   IsPaused;
-	public bool   IsGrounded;
-	public bool   IsAirborne;
-	public bool   IsStumbling;
-	public bool   IsFallen;
-	public bool   IsFlying;
-	public bool   IsJumping;
-	public bool   IsFinishing;
-	public bool   HasFinished;
-	public float  Speed;
-	public float  offset;
-	public float  height;
-	public float  travelledDst;
-	public Fallen currentFallen;
+	public bool    IsPaused;
+	public bool    IsGrounded;
+	public bool    IsAirborne;
+	public bool    IsStumbling;
+	public bool    IsFallen;
+	public bool    IsFlying;
+	public bool    IsJumping;
+	public bool    IsFinishing;
+	public bool    HasFinished;
+	public float   Speed;
+	public float   offset;
+	public float   height;
+	public float   travelledDst;
+	public Vector3 stumblePoint;
+	public Fallen  currentFallen;
 	
 	[field: SerializeField]
 	public GameObject Copter { get; set; }

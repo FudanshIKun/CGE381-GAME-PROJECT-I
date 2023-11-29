@@ -64,8 +64,8 @@ public sealed class RunningState : GroundedState{
 		player.offset = Mathf.Clamp(player.offset, -setting.maxOffset, setting.maxOffset);
 		var point = player.Curve.InterpolateByDistance(player.travelledDst);
 		var floating = FloatOnGround();
-		
-		player.transform.position = new Vector3(point.x + player.offset, floating, point.z);
+
+		player.transform.position = new Vector3(point.x, floating, point.z) + player.transform.right * player.offset;
 		player.transform.rotation = Quaternion.LookRotation(player.Curve.GetTangentByDistance(player.travelledDst));
 	}
 

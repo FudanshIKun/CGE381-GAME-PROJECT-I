@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
-using AmplifyShaderEditor;
 using DG.Tweening;
 using FluffyUnderware.Curvy;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;

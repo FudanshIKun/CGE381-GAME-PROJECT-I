@@ -63,6 +63,9 @@ public sealed class Fallen : Interactable{
 	}
 
 	protected override void OnInteract(Player player){
+		if (player.StateMachine.currentState != player.StateMachine.FlyingState)
+			return;
+		
 		Debug.Log("[Player 0] fall into " + gameObject.name);
 		GetComponent<BoxCollider>().enabled = false;
 		var point = Curve.GetNearestPointTF(transform.position);

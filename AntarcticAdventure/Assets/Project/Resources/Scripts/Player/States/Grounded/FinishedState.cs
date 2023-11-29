@@ -6,21 +6,21 @@ public sealed class FinishedState : GroundedState{
 	}
 	
 	// PRIVATE MEMBERS
-	private bool finishedX;
-	private bool finishedZ;
+	private bool finished;
 		
 	// State INTERFACE
 	public override void OnEnter(){
 		base.OnEnter();
 		OnFinishedEnter(stateMachine.player);
 		animation.SetRunning(true);
+		animation.SetRunningBlending(0);
 		SoundHandler.Instance.StopMusic();
 		ParticleHandler.Instance.StopSpawning();
 	}
 
 	public override void OnUpdate(){
 		base.OnUpdate();
-		if (finishedX && finishedZ){
+		if (finished){
 			if (stateMachine.player.HasFinished)
 				return;
 			
@@ -40,14 +40,9 @@ public sealed class FinishedState : GroundedState{
 	// PRIVATE METHODS
 	private void OnFinishedEnter(Player player){
 		player.IsFinishing = true;
-		player.transform.DOMoveX(LevelHandler.Instance.destination.transform.position.x, setting.toFinishingDuration)
+		player.transform.DOMove(LevelHandler.Instance.destination.transform.position, setting.toFinishingDuration)
 			.OnComplete((() => {
-				finishedX = true;
-			}));
-		
-		player.transform.DOMoveZ(LevelHandler.Instance.destination.transform.position.z, setting.toFinishingDuration)
-			.OnComplete((() => {
-				finishedZ = true;
+				finished = true;
 			}));
 	}
 

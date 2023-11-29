@@ -17,7 +17,8 @@ public sealed class Seal : Interactable{
 	}
 
 	protected override void OnInteract(Player player){
-		StumblePlayer(player);
+		if (player.StateMachine.currentState != player.StateMachine.FlyingState)
+			StumblePlayer(player);
 	}
 
 	// PRIVATE METHODS

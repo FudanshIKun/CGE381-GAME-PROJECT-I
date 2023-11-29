@@ -112,7 +112,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Exposure: 1.5
+    - _Exposure: 1.1
     - _Fog2End: 0.217
     - _Fog2Intens: 1
     - _Fog2Start: 0.489

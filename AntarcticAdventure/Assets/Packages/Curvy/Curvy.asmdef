@@ -1,3 +1,16 @@
 {
-	"name": "Curvy"
+    "name": "Curvy",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7ab3888bed7f5f5429cef5352a56d400"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

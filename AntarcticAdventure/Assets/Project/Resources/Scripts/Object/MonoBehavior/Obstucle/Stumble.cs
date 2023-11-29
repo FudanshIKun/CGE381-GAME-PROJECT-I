@@ -6,7 +6,8 @@ public sealed class Stumble : Interactable{
 	}
 
 	protected override void OnInteract(Player player){
-		StumblePlayer(player);
+		if (player.StateMachine.currentState != player.StateMachine.FlyingState)
+			StumblePlayer(player);
 	}
 
 	private void StumblePlayer(Player player){

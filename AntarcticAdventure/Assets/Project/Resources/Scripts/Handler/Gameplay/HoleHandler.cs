@@ -6,7 +6,6 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 public sealed class HoleHandler : Handler<HoleHandler>{
-#if UNITY_EDITOR
 	// PUBLIC MEMBERS
 	public List<Hole> Holes = new ();
 	[Header("Setting")] 
@@ -19,6 +18,7 @@ public sealed class HoleHandler : Handler<HoleHandler>{
 	
 	// MonoBehavior INTERFACE
 	private void Update(){
+	#if UNITY_EDITOR
 		if (Application.isEditor && !Application.isPlaying){
 			var holes = GetComponentsInChildren<Hole>();
 			var holeSet = new HashSet<Hole>(Holes);
@@ -37,6 +37,6 @@ public sealed class HoleHandler : Handler<HoleHandler>{
 			Holes = holeSet.ToList();
 			Holes.Sort((a, b) => a.CompareTo(b));
 		}
+	#endif
 	}
-#endif
 }

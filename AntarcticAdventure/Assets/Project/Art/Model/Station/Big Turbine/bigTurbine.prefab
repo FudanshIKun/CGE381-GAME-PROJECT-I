@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cae0d2018f398324c8ffac2747d15463,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.6
+      value: -188.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cae0d2018f398324c8ffac2747d15463,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.84
+      value: 21.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cae0d2018f398324c8ffac2747d15463,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 660.3
+      value: 1088.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cae0d2018f398324c8ffac2747d15463,
         type: 3}
@@ -111,5 +111,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cae0d2018f398324c8ffac2747d15463,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4730356564741904323}
   m_SourcePrefab: {fileID: 100100000, guid: cae0d2018f398324c8ffac2747d15463, type: 3}
+--- !u!4 &6119377916618043047 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5975328343975626172, guid: cae0d2018f398324c8ffac2747d15463,
+    type: 3}
+  m_PrefabInstance: {fileID: 8790810198330643683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8448280786656569778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cae0d2018f398324c8ffac2747d15463,
+    type: 3}
+  m_PrefabInstance: {fileID: 8790810198330643683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4730356564741904323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448280786656569778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c56f4cf628c72443a3dc2a8d0908d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turbine: {fileID: 6119377916618043047}
+  speed: 50

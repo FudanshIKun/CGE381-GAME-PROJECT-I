@@ -24,7 +24,10 @@ public sealed class Seal : Interactable{
 	// PRIVATE METHODS
 	private void StumblePlayer(Player player){
 		animator.SetBool("is_collided", true);
-		player.AnimationController.stumbleSide = player.transform.position.x > transform.position.x;
+		var playerPosition = Vector3.Dot(player.transform.position - transform.position, transform.right);
+		var stumblePosition = Vector3.Dot(transform.position - transform.position,       transform.right);
+		player.AnimationController.stumbleSide = playerPosition > stumblePosition;
+		player.AnimationController.stumbleSide = playerPosition > stumblePosition;
 		player.StateMachine.ChangeState(player.StateMachine.StumblingState);
 		StartCoroutine(SelfDestroy());
 	}

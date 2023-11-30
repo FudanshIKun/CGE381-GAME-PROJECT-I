@@ -80,8 +80,8 @@ public sealed class JumpingState : AirborneState{
 		
 		player.travelledDst += Time.deltaTime * player.Speed;
 		var point = player.Curve.InterpolateByDistance(player.travelledDst);
-		
-		player.transform.position = new Vector3(point.x + player.offset, rb.position.y, point.z);
+
+		player.transform.position = new Vector3(point.x, rb.position.y, point.z) + player.transform.right * player.offset;
 		player.transform.rotation = Quaternion.LookRotation(player.Curve.GetTangentByDistance(player.travelledDst));
 	}
 }

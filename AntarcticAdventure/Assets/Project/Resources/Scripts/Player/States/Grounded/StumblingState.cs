@@ -6,8 +6,12 @@ public sealed class StumblingState : GroundedState{
 	}
 	
 	// PRIVATE MEMBERS
-	private bool noBouncing;
-	private int  bouncedTime;
+	private bool    noBouncing;
+	private int     bouncedTime;
+	private bool    finishedX;
+	private bool    finishedZ;
+	private bool    finished;
+	private Vector3 targetPosition;
 
 	// State INTERFACE
 	public override void OnEnter(){
@@ -16,6 +20,9 @@ public sealed class StumblingState : GroundedState{
 			noBouncing = true;
 		rb.useGravity = true;
 		rb.velocity = Vector3.zero;
+		finishedX = false;
+		finishedZ = false;
+		finished = false;
 		Stumbling(stateMachine.player);
 		animation.SetRunning(true);
 		animation.StartStumble(animation.stumbleSide);
@@ -27,6 +34,22 @@ public sealed class StumblingState : GroundedState{
 		rb.transform.position = ground != 0
 			? new Vector3(stateMachine.player.transform.position.x, ground, stateMachine.player.transform.position.z) 
 			: stateMachine.player.transform.position;
+
+		if (finishedX && finishedZ){
+			if (finished)
+				return;
+			
+			Debug.Log("finished");
+			stateMachine.player.Speed = 0f;
+			var middle = LevelHandler.Instance.Curve.Interpolate(LevelHandler.Instance.Curve.GetNearestPointTF(stateMachine.player.transform.position));
+			var playerPos = new Vector3(stateMachine.player.transform.position.x, middle.y, stateMachine.player.transform.position.z);
+			var directionToMiddle= (playerPos - middle).normalized;
+			var offsetDirection = Vector3.Dot(directionToMiddle, stateMachine.player.transform.right);
+			var offset = Vector3.Distance(playerPos, middle) * offsetDirection;
+			stateMachine.player.offset = offset;
+			stateMachine.ChangeState(stateMachine.RunningState);
+			finished = true;
+		}
 	}
 
 	public override void OnExit(){
@@ -46,20 +69,28 @@ public sealed class StumblingState : GroundedState{
 	// PRIVATE METHODS
 	private void Stumbling(Player player){
 		player.IsStumbling = true;
-		var point = LevelHandler.Instance.Curve.InterpolateByDistance(player.travelledDst);
-		
-		var targetX = player.AnimationController.stumbleSide
-			? Mathf.Clamp(point.x + setting.stumblingDistance, -setting.maxOffset, setting.maxOffset)
-			: Mathf.Clamp(point.x - setting.stumblingDistance, -setting.maxOffset, setting.maxOffset);
+		targetPosition = player.transform.position;
+
+		if (player.AnimationController.stumbleSide){
+			Debug.Log("[Player 0] Stumbling to right");
+			targetPosition += player.transform.right * setting.stumblingDistance;
+		}
+		else{
+			Debug.Log("[Player 0] Stumbling to left");
+			targetPosition -= player.transform.right * setting.stumblingDistance;
+		}
 		
 		//rb.AddForce(Vector3.up * Mathf.Sqrt(2 * setting.stumblingJumpPower), ForceMode.VelocityChange);
-		rb.AddForce(Vector3.up * setting.stumblingJumpPower, ForceMode.VelocityChange);
+		rb.AddForce(player.transform.up * setting.stumblingJumpPower, ForceMode.VelocityChange);
 		
-		player.transform.DOMoveX(targetX, setting.stumblingDuration)
+		player.transform.DOMoveX(targetPosition.x, setting.stumblingDuration)
 			.OnComplete(() => {
-				player.Speed = 0f;
-				player.offset = player.transform.position.x;
-				stateMachine.ChangeState(stateMachine.RunningState);
+				finishedX = true;
+			});
+		
+		player.transform.DOMoveZ(targetPosition.z, setting.stumblingDuration)
+			.OnComplete(() => {
+				finishedZ = true;
 			});
 	}
 

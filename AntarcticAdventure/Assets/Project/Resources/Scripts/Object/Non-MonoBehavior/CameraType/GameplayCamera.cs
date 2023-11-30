@@ -34,8 +34,7 @@ public sealed class GameplayCamera{
 			return;
 		
 		var oInterpolateByDistance = player.Curve.InterpolateByDistance(player.travelledDst);
-		var offset = setting.offset;
-		var position = CalculateResponsive(oInterpolateByDistance + offset);
+		var position = CalculateResponsive(oInterpolateByDistance + VirtualCamera.transform.forward * setting.offset.z + VirtualCamera.transform.up * setting.offset.y + VirtualCamera.transform.right * setting.offset.x);
 		VirtualCamera.transform.position = new Vector3(position.x, position.y, position.z);
 	}
 
@@ -43,8 +42,7 @@ public sealed class GameplayCamera{
 		if (IsInCinematic || player == null)
 			return;
 		
-		if (player.transform.rotation.y != 0)
-			VirtualCamera.transform.rotation = Quaternion.LookRotation(new Vector3(VirtualCamera.transform.rotation.x, player.transform.rotation.y, VirtualCamera.transform.rotation.z));
+		VirtualCamera.transform.rotation = Quaternion.LookRotation(player.Curve.GetTangentByDistance(player.travelledDst));
 	}
 
 	public Vector3 CalculateResponsive(Vector3 originPosition){

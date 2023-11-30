@@ -18,19 +18,23 @@ public abstract class State : IState{
 	
 	// State INTERFACE
 	public virtual void OnEnter(){
-		Debug.Log($"[Player 0] OnEnter {GetType().Name} state.");
+		if (stateMachine.debugState)
+			Debug.Log($"[Player 0] OnEnter {GetType().Name} state.");
 	}
 
 	public virtual void OnFixedUpdate(){
-		Debug.Log($"[Player 0] OnFixedUpdate {GetType().Name} state.");
+		if (stateMachine.debugState)
+			Debug.Log($"[Player 0] OnFixedUpdate {GetType().Name} state.");
 	}
 
 	public virtual void OnUpdate(){
-		Debug.Log($"[Player 0] OnUpdate {GetType().Name} state.");
+		if (stateMachine.debugState)
+			Debug.Log($"[Player 0] OnUpdate {GetType().Name} state.");
 	}
 
 	public virtual void OnExit(){
-		Debug.Log($"[Player 0] OnExit {GetType().Name} state.");
+		if (stateMachine.debugState)
+			Debug.Log($"[Player 0] OnExit {GetType().Name} state.");
 	}
 
 	public virtual void OnTriggerEnter(Collider collider){
@@ -45,10 +49,12 @@ public abstract class State : IState{
 
 	// PROTECTED METHODS
 	protected virtual void OnGroundContact(){
-		Debug.Log($"[Player] OnGroundContact {GetType().Name} state.");
+		if (stateMachine.debugState)
+			Debug.Log($"[Player] OnGroundContact {GetType().Name} state.");
 	}
 
 	protected virtual void OnGroundContactLost(){
-		Debug.Log($"[Player] OnGroundContactLost {GetType().Name} state.");
+		if (stateMachine.debugState)
+			Debug.Log($"[Player] OnGroundContactLost {GetType().Name} state.");
 	}
 }

@@ -6203,7 +6203,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12, y: 4.75, z: 22}
   m_Center: {x: 0, y: 0.09500003, z: 0}
+<<<<<<< HEAD
 --- !u!1 &746604928787507207
+=======
+--- !u!1 &731307906806335001
+>>>>>>> 9931ec91fe5c7be2218e70b318474fca53a52d4b
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

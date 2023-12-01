@@ -47,17 +47,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tg_music: {fileID: 0}
   tg_sfx: {fileID: 0}
+  ui_selectedSFX: {fileID: 8300000, guid: 9fe625a9a5a315849b8c77215443e1e9, type: 3}
+  ui_submitSFX: {fileID: 8300000, guid: cad2a5da9e52aef488f338f9a4437e60, type: 3}
+  ui_cancelSFX: {fileID: 8300000, guid: 92301e91505f2874e834fbff624489eb, type: 3}
+  ui_intoGameSFX: {fileID: 8300000, guid: 5c80affabb0a5fd4caf483b033985d8c, type: 3}
   musicSFX: {fileID: 8300000, guid: f913a668b968b714eabfadca92ecd81e, type: 3}
-  ambientSFX: {fileID: 0}
-  countSFX: {fileID: 0}
-  startRunningSFX: {fileID: 0}
-  fishJumpSFX: {fileID: 0}
-  jumpSFX: {fileID: 0}
-  collisionSFX: {fileID: 0}
-  copterSFX: {fileID: 0}
-  scoreSFX: {fileID: 0}
-  winningSFX: {fileID: 8300000, guid: f60170ebdcab6774eae6b36da59f9e4b, type: 3}
-  gameOverSFX: {fileID: 0}
+  ambientSFX: {fileID: 8300000, guid: 9ceb287085f192348be89d72c8554b43, type: 3}
+  countSFX: {fileID: 8300000, guid: ae20e1db42078eb45bc90bf0ec966dd2, type: 3}
+  startRunningSFX: {fileID: 8300000, guid: 7ef925c17a0d08e4fb733934610d2dcd, type: 3}
+  fishJumpSFX: {fileID: 8300000, guid: 184b1bca6f572b74eba62cd32ab85355, type: 3}
+  jumpSFX: {fileID: 8300000, guid: cad2a5da9e52aef488f338f9a4437e60, type: 3}
+  collisionSFX: {fileID: 8300000, guid: 304edfa880a499a4cbf634e0d6dd62b4, type: 3}
+  copterSFX: {fileID: 8300000, guid: 17b530610bed47640b2d82af914dea06, type: 3}
+  scoreSFX: {fileID: 8300000, guid: 5966b2917cf95314c9835a4636dc622d, type: 3}
+  winningSFX: {fileID: 8300000, guid: 4a059caee1bea51489bcc19dc62cebb4, type: 3}
+  gameOverSFX: {fileID: 8300000, guid: 5967fd8a9f506c64b87cd7713acb1103, type: 3}
 --- !u!114 &1392348958166725297
 MonoBehaviour:
   m_ObjectHideFlags: 0

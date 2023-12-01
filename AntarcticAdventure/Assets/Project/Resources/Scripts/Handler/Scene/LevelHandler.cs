@@ -190,6 +190,7 @@ public sealed class LevelHandler : Handler<LevelHandler>{
 
 	private void GameOver(){
 		Debug.Log("[LevelHandler] Timeout");
+		SoundHandler.Instance.StopMusic();
 		if (gameHasOver)
 			return;
 

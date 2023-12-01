@@ -3,7 +3,8 @@ using System.Linq;
 
 public static class Utility{
 	public static readonly string[] ScenesToExcludeFromSave ={ "MainMenu", "Map", "Prototype" };
-	public static           float    LerpWithoutClamp (float a, float b, float t) => a + (b - a) * t;
+	
+	public static float LerpWithoutClamp (float a, float b, float t) => a + (b - a) * t;
 
 	public static int LevelToValue(GameManager.Scenes scene){
 		var sceneName = scene.ToString();

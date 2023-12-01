@@ -35,24 +35,30 @@ public sealed class AirplaneHandler : Handler<AirplaneHandler>{
 				
 					var point = Curve.InterpolateByDistance(a.distance);
 					var rotation = Curve.GetTangentByDistance(a.distance);
-					var rightDir = new Vector3(rotation.z, 0, -rotation.x);
 					a.transform.position = new Vector3(point.x, groundLevel, point.z);
 					a.transform.rotation = Quaternion.LookRotation(rotation);
 
 					if (a.Airplane != null){
-						a.Airplane.transform.position = new Vector3(point.x - Mathf.Abs(flyStartPointXOffset), skyLevel, point.z + flyPathZOffset);
-						a.Airplane.transform.rotation = Quaternion.LookRotation(rightDir);
+						a.Airplane.transform.position = new Vector3(point.x, skyLevel, point.z)
+						                                - a.transform.right * Mathf.Abs(flyStartPointXOffset)
+						                                + a.transform.forward * flyPathZOffset;
 					}
-					else
-					if (AirplaneModel != null)
-						a.Airplane = Instantiate(AirplaneModel, new Vector3(point.x - Mathf.Abs(flyStartPointXOffset), skyLevel, point.z + flyPathZOffset), Quaternion.LookRotation(rightDir), a.gameObject.transform);
+					else if (AirplaneModel != null)
+						a.Airplane = Instantiate(AirplaneModel, 
+							new Vector3(point.x, skyLevel, point.z) - a.transform.right * Mathf.Abs(flyStartPointXOffset) + a.transform.forward * flyPathZOffset, 
+							Quaternion.identity, 
+							a.gameObject.transform);
 				
 					if (a.Destination != null){
-						a.Destination.transform.position = new Vector3(point.x + Mathf.Abs(flyStartPointXOffset), skyLevel, point.z + flyPathZOffset);
-						a.Destination.transform.rotation = Quaternion.LookRotation(rightDir);
+						a.Destination.transform.position = new Vector3(point.x, skyLevel, point.z)
+						                                   + a.transform.right * Mathf.Abs(flyStartPointXOffset)
+						                                   + a.transform.forward * flyPathZOffset;
+						a.Destination.transform.rotation = Quaternion.LookRotation(a.transform.right);
 					}
 					else
-						a.Destination = Instantiate(new GameObject("Destination"), new Vector3(point.x + Mathf.Abs(flyStartPointXOffset), skyLevel, point.z + flyPathZOffset), Quaternion.LookRotation(rightDir), a.gameObject.transform).transform;
+						a.Destination = Instantiate(new GameObject("Destination"), 
+							new Vector3(point.x, skyLevel, point.z) + a.transform.right * Mathf.Abs(flyStartPointXOffset) + a.transform.forward * flyPathZOffset, 
+							Quaternion.LookRotation(a.transform.right), a.gameObject.transform).transform;
 				}
 			
 			Airplanes = hashSet.ToList();

@@ -48,7 +48,7 @@ public sealed class FallenState : GroundedState{
 	}
 	
 	private void TryToJumpOff(Player player, Fallen fallen){
-		Debug.Log("[Player 0] TryToJumpOff!");
+		Debug.Log("[Player 0] TryingToJumpOff!");
 		if (InputHandler.Instance.IsPressingJump){
 			if (!hasCompletedFall)
 				return;

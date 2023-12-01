@@ -43,12 +43,10 @@ public sealed class JumpingState : AirborneState{
 		}
 		else{
 			if (player.IsFlying){
-				Debug.Log("[Player 0] Flying");
 				stateMachine.speedAcc = setting.flySpeed - player.Speed;
 			}
 			else{
 				if (InputHandler.Instance.IsPressingForward){
-					Debug.Log("[Player 0] Moving forward");
 					stateMachine.speedAcc = setting.accelerateSpeed - player.Speed;
 				}
 				else{
@@ -61,14 +59,10 @@ public sealed class JumpingState : AirborneState{
 		}
 		
 		// Offset Calculation
-		if (InputHandler.Instance.IsPressingLeft){
-			Debug.Log("[Player 0] Moving left");
+		if (InputHandler.Instance.IsPressingLeft)
 			stateMachine.offsetDir = -1;
-		}
-		else if (InputHandler.Instance.IsPressingRight){
-			Debug.Log("[Player 0] Moving right");
+		else if (InputHandler.Instance.IsPressingRight)
 			stateMachine.offsetDir = 1;
-		}
 		
 		stateMachine.targetOffset = Mathf.Lerp(stateMachine.targetOffset, stateMachine.offsetDir, setting.offsetAcceleration * Time.deltaTime);
 		if (!InputHandler.Instance.IsPressingLeft && !InputHandler.Instance.IsPressingRight)

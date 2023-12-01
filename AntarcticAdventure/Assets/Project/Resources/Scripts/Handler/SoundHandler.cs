@@ -8,6 +8,14 @@ public sealed class SoundHandler : Handler<SoundHandler>{
 	[SerializeField]
 	private UIToggle tg_sfx;
 	[SerializeField]
+	private AudioClip ui_selectedSFX;
+	[SerializeField]
+	private AudioClip ui_submitSFX;
+	[SerializeField]
+	private AudioClip ui_cancelSFX;
+	[SerializeField]
+	private AudioClip ui_intoGameSFX;
+	[SerializeField]
 	private AudioClip musicSFX;
 	[SerializeField]
 	private AudioClip ambientSFX;
@@ -36,61 +44,75 @@ public sealed class SoundHandler : Handler<SoundHandler>{
 	}
 
 	// PUBLIC METHODS
-	public void StartMusic(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.Music, musicSFX);
-	}
+	public void PlayUISelect()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, ui_selectedSFX);
+	
+	public void PlayUISubmit()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, ui_submitSFX);
 
-	public void StopMusic(){
+	public void PlayUICancel()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, ui_cancelSFX);
+
+	public void PlayUIIntoGame(){
 		SoundManager.Instance.StopSound(SoundManager.SoundType.Music);
-	}
-
-	public void StartAmbient(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.OtherAmbient, ambientSFX);
-	}
-
-	public void StopAmbient(){
-		SoundManager.Instance.StopSound(SoundManager.SoundType.OtherAmbient);
-	}
-
-	public void PlayCount(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, countSFX);
-	}
-
-	public void PlayStartRunning(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, startRunningSFX);
-	}
-
-	public void PlayFishJump(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, fishJumpSFX);
-	}
-
-	public void PlayJump(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, jumpSFX);
-	}
-
-	public void PlayCollision(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, collisionSFX);
-	}
-
-	public void PlayScore(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, scoreSFX);
-	}
-
-	public void StartCopter(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.PlayerAmbient, copterSFX);
-	}
-
-	public void StopCopter() {
-		SoundManager.Instance.StopSound(SoundManager.SoundType.PlayerAmbient);
+		SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, ui_intoGameSFX);
 	}
 	
-	public void PlayWinning(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, winningSFX);
-	}
+	public void StartMusic()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.Music, musicSFX);
+	
 
-	public void PlayGameOver(){
-		SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, gameOverSFX);
-	}
+	public void StopMusic()
+		=> SoundManager.Instance.StopSound(SoundManager.SoundType.Music);
+	
+
+	public void StartAmbient()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.OtherAmbient, ambientSFX);
+	
+
+	public void StopAmbient()
+		=> SoundManager.Instance.StopSound(SoundManager.SoundType.OtherAmbient);
+	
+
+	public void PlayCount()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, countSFX);
+	
+
+	public void PlayStartRunning()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, startRunningSFX);
+	
+
+	public void PlayFishJump()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, fishJumpSFX);
+	
+
+	public void PlayJump()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, jumpSFX);
+	
+
+	public void PlayCollision()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, collisionSFX);
+	
+
+	public void PlayScore()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, scoreSFX);
+	
+
+	public void StartCopter()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.PlayerAmbient, copterSFX);
+	
+
+	public void StopCopter() 
+		=> SoundManager.Instance.StopSound(SoundManager.SoundType.PlayerAmbient);
+	
+	
+	public void PlayWinning()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, winningSFX);
+	
+
+	public void PlayGameOver()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, gameOverSFX);
+	
 	
 	// PRIVATE METHODS
 	private void Initialize(){

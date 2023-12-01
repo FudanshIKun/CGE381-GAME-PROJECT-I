@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -38,6 +39,14 @@ public sealed class AirplaneTrigger : MonoBehaviour, IComparable<AirplaneTrigger
 		Airplane.transform.DOMove(Destination.position, duration)
 			.OnStart(() => {
 				Debug.Log($"{name} has start flying pass by!");
-			});
+			})
+			.OnComplete((() => {
+				StartCoroutine(SelfDestroy());
+			}));
+	}
+	
+	private IEnumerator SelfDestroy(){
+		yield return new WaitForSeconds(4);
+		Destroy(gameObject);
 	}
 }

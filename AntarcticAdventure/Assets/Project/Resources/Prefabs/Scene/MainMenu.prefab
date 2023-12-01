@@ -12224,6 +12224,18 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUISubmit
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       BehaviourName: 4
       Receiver:
         ConnectionMode: 1
@@ -18226,6 +18238,18 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUICancel
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       BehaviourName: 4
       Receiver:
         ConnectionMode: 1
@@ -22798,6 +22822,18 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUISubmit
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       BehaviourName: 4
       Receiver:
         ConnectionMode: 1
@@ -25387,6 +25423,18 @@ MonoBehaviour:
             m_TargetAssemblyTypeName: Doozy.Runtime.UIManager.Containers.UIContainer,
               Assembly-CSharp
             m_MethodName: Hide
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUISubmit
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -31382,6 +31430,18 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUICancel
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       BehaviourName: 4
       Receiver:
         ConnectionMode: 1
@@ -32935,6 +32995,18 @@ MonoBehaviour:
             m_TargetAssemblyTypeName: Doozy.Runtime.UIManager.Containers.UIContainer,
               Assembly-CSharp
             m_MethodName: Show
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUISubmit
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -48315,6 +48387,18 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUISubmit
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       BehaviourName: 4
       Receiver:
         ConnectionMode: 1
@@ -50973,6 +51057,18 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUICancel
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       BehaviourName: 4
       Receiver:
         ConnectionMode: 1
@@ -52526,6 +52622,18 @@ MonoBehaviour:
             m_TargetAssemblyTypeName: Doozy.Runtime.UIManager.Containers.UIContainer,
               Assembly-CSharp
             m_MethodName: Show
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUISubmit
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -58791,6 +58899,18 @@ MonoBehaviour:
           - m_Target: {fileID: 6353402837648664460}
             m_TargetAssemblyTypeName: MainMenuHandler, Assembly-CSharp
             m_MethodName: Quit
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 1053054027140748884}
+            m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
+            m_MethodName: PlayUISubmit
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -69638,14 +69758,96 @@ PrefabInstance:
       objectReference: {fileID: 2990361690124260595}
     - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
         type: 3}
+      propertyPath: jumpSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: cad2a5da9e52aef488f338f9a4437e60, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: countSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: ae20e1db42078eb45bc90bf0ec966dd2, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: scoreSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 5966b2917cf95314c9835a4636dc622d, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
       propertyPath: tg_music
       value: 
       objectReference: {fileID: 1723389184247680127}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: copterSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 17b530610bed47640b2d82af914dea06, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: ambientSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ceb287085f192348be89d72c8554b43, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: winningSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a059caee1bea51489bcc19dc62cebb4, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: fishJumpSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 184b1bca6f572b74eba62cd32ab85355, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: gameOverSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 5967fd8a9f506c64b87cd7713acb1103, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: collisionSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 304edfa880a499a4cbf634e0d6dd62b4, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: ui_cancelSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 92301e91505f2874e834fbff624489eb, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: ui_submitSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: cad2a5da9e52aef488f338f9a4437e60, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: ui_intoGameSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c80affabb0a5fd4caf483b033985d8c, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: ui_selectedSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fe625a9a5a315849b8c77215443e1e9, type: 3}
+    - target: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+        type: 3}
+      propertyPath: startRunningSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ef925c17a0d08e4fb733934610d2dcd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc244977d90b8914c957da08b5ea5713, type: 3}
+--- !u!114 &1053054027140748884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9130375477870304379, guid: fc244977d90b8914c957da08b5ea5713,
+    type: 3}
+  m_PrefabInstance: {fileID: 8081902021573167663}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8dda6c9e75e4df9a2ba12d0634bccce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5452988549074129131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4288630948309195460, guid: fc244977d90b8914c957da08b5ea5713,

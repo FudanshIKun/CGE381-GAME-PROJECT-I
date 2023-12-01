@@ -39,6 +39,7 @@ public sealed class MainMenuHandler : Handler<MainMenuHandler>{
 	public void QuestionNewGame(){
 		if (PlayerPrefManager.Instance.GetLastStageNumber() != 0 && PlayerPrefManager.Instance.GetLastStageNumber() <= 9){
 			Debug.Log("[MainMenuHandler] QuestionNewGame");
+			SoundHandler.Instance.PlayUISubmit();
 			UC_MainMenu.Hide();
 			UC_QuestionForNewGame.Show();
 		}
@@ -49,6 +50,7 @@ public sealed class MainMenuHandler : Handler<MainMenuHandler>{
 	}
 
 	public void NewGame(){
+		SoundHandler.Instance.PlayUIIntoGame();
 		PlayerPrefManager.Instance.CreateRecord();
 		TimelinePlayer.Play(NewGameSequence);
 	}
@@ -62,18 +64,23 @@ public sealed class MainMenuHandler : Handler<MainMenuHandler>{
 	public void QuestionContinueGame(){
 		Debug.Log("[MainMenuHandler] ContinueGame");
 		if (!PlayerPrefs.HasKey(PlayerPrefManager.LastStagePrefix)){
+			SoundHandler.Instance.PlayUISubmit();
 			UC_MainMenu.Hide();
 			UC_WarningForContinueGame.Show();
 		}
-		else if (PlayerPrefManager.Instance.GetLastStageNumber() <= 9)
+		else if (PlayerPrefManager.Instance.GetLastStageNumber() <= 9){
+			SoundHandler.Instance.PlayUIIntoGame();
 			TimelinePlayer.Play(ContinueGameSequence);
+		}
 		else{
+			SoundHandler.Instance.PlayUISubmit();
 			UC_MainMenu.Hide();
 			UC_QuestionForContinueGame.Show();
 		}
 	}
 
 	public void ContinueGame(){
+		SoundHandler.Instance.PlayUIIntoGame();
 		TimelinePlayer.Play(ContinueGameSequence);
 	}
 

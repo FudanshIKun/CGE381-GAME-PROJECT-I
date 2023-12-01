@@ -28,7 +28,7 @@ public class CameraHandler : Handler<CameraHandler>{
 						}
 					}
 					else{
-						Debug.Log("Error! GameplayCamera's target must have Player as component.");
+						Debug.Log("[CameraHandler] Error! GameplayCamera's target must have Player as component.");
 					}
 				}
 			}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &963814615476830388
+--- !u!1 &4633559523503760826
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4288630948309195460}
-  - component: {fileID: 9130375477870304379}
-  - component: {fileID: 3273530017445977345}
+  - component: {fileID: 8550605881857097674}
+  - component: {fileID: 3717723143216298357}
+  - component: {fileID: 6935675006629214223}
   m_Layer: 0
   m_Name: SoundHandler ( MainMenu )
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4288630948309195460
+--- !u!4 &8550605881857097674
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963814615476830388}
+  m_GameObject: {fileID: 4633559523503760826}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,13 +33,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9130375477870304379
+--- !u!114 &3717723143216298357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963814615476830388}
+  m_GameObject: {fileID: 4633559523503760826}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8dda6c9e75e4df9a2ba12d0634bccce, type: 3}
@@ -47,24 +47,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tg_music: {fileID: 0}
   tg_sfx: {fileID: 0}
+  ui_selectedSFX: {fileID: 8300000, guid: 9fe625a9a5a315849b8c77215443e1e9, type: 3}
+  ui_submitSFX: {fileID: 8300000, guid: cad2a5da9e52aef488f338f9a4437e60, type: 3}
+  ui_cancelSFX: {fileID: 8300000, guid: 92301e91505f2874e834fbff624489eb, type: 3}
+  ui_intoGameSFX: {fileID: 8300000, guid: 5c80affabb0a5fd4caf483b033985d8c, type: 3}
   musicSFX: {fileID: 8300000, guid: f913a668b968b714eabfadca92ecd81e, type: 3}
-  ambientSFX: {fileID: 0}
-  countSFX: {fileID: 0}
-  startRunningSFX: {fileID: 0}
-  fishJumpSFX: {fileID: 0}
-  jumpSFX: {fileID: 0}
-  collisionSFX: {fileID: 0}
-  copterSFX: {fileID: 0}
-  scoreSFX: {fileID: 0}
-  winningSFX: {fileID: 8300000, guid: f60170ebdcab6774eae6b36da59f9e4b, type: 3}
-  gameOverSFX: {fileID: 0}
---- !u!114 &3273530017445977345
+  ambientSFX: {fileID: 8300000, guid: 9ceb287085f192348be89d72c8554b43, type: 3}
+  countSFX: {fileID: 8300000, guid: ae20e1db42078eb45bc90bf0ec966dd2, type: 3}
+  startRunningSFX: {fileID: 8300000, guid: 7ef925c17a0d08e4fb733934610d2dcd, type: 3}
+  fishJumpSFX: {fileID: 8300000, guid: 184b1bca6f572b74eba62cd32ab85355, type: 3}
+  jumpSFX: {fileID: 8300000, guid: cad2a5da9e52aef488f338f9a4437e60, type: 3}
+  collisionSFX: {fileID: 8300000, guid: 304edfa880a499a4cbf634e0d6dd62b4, type: 3}
+  copterSFX: {fileID: 8300000, guid: 17b530610bed47640b2d82af914dea06, type: 3}
+  scoreSFX: {fileID: 8300000, guid: 5966b2917cf95314c9835a4636dc622d, type: 3}
+  winningSFX: {fileID: 8300000, guid: 4a059caee1bea51489bcc19dc62cebb4, type: 3}
+  gameOverSFX: {fileID: 8300000, guid: 5967fd8a9f506c64b87cd7713acb1103, type: 3}
+--- !u!114 &6935675006629214223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963814615476830388}
+  m_GameObject: {fileID: 4633559523503760826}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
@@ -80,7 +84,7 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 9130375477870304379}
+        - m_Target: {fileID: 3717723143216298357}
           m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
           m_MethodName: StartMusic
           m_Mode: 1
@@ -94,7 +98,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 9130375477870304379}
+        - m_Target: {fileID: 3717723143216298357}
           m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
           m_MethodName: StopMusic
           m_Mode: 1
@@ -108,7 +112,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 9130375477870304379}
+        - m_Target: {fileID: 3717723143216298357}
           m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
           m_MethodName: PlayAmbient
           m_Mode: 1
@@ -122,7 +126,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 9130375477870304379}
+        - m_Target: {fileID: 3717723143216298357}
           m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
           m_MethodName: PlayCount
           m_Mode: 1
@@ -136,7 +140,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 9130375477870304379}
+        - m_Target: {fileID: 3717723143216298357}
           m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
           m_MethodName: PlayStartRunning
           m_Mode: 1

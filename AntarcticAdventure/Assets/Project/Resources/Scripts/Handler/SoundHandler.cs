@@ -37,6 +37,8 @@ public sealed class SoundHandler : Handler<SoundHandler>{
 	private AudioClip winningSFX;
 	[SerializeField]
 	private AudioClip gameOverSFX;
+	[SerializeField]
+	private AudioClip enterMapSFX;
 	
 	// MonoBehavior INTERFACE
 	private void Start(){
@@ -44,6 +46,9 @@ public sealed class SoundHandler : Handler<SoundHandler>{
 	}
 
 	// PUBLIC METHODS
+	public void PlayEnterMap()
+		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, enterMapSFX);
+	
 	public void PlayUISelect()
 		=> SoundManager.Instance.PlaySound(SoundManager.SoundType.SFX, ui_selectedSFX);
 	

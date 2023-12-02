@@ -62,6 +62,7 @@ MonoBehaviour:
   scoreSFX: {fileID: 8300000, guid: 5966b2917cf95314c9835a4636dc622d, type: 3}
   winningSFX: {fileID: 8300000, guid: b550771b8da6e44419175dfcb977550c, type: 3}
   gameOverSFX: {fileID: 8300000, guid: c94add313249e8f459e2bd93503a276a, type: 3}
+  enterMapSFX: {fileID: 8300000, guid: ab849f97e76548d4499580008dae2878, type: 3}
 --- !u!114 &1392348958166725297
 MonoBehaviour:
   m_ObjectHideFlags: 0

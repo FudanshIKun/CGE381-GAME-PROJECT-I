@@ -16,6 +16,7 @@ public sealed class FinishedState : GroundedState{
 		animation.SetRunning(true);
 		animation.SetRunningBlending(0);
 		SoundHandler.Instance.StopMusic();
+		SoundHandler.Instance.PlayWinning();
 		ParticleHandler.Instance.StopSpawning();
 	}
 
@@ -44,14 +45,26 @@ public sealed class FinishedState : GroundedState{
 	private void OnFinishedEnter(Player player){
 		player.IsFinishing = true;
 		player.transform.DOMoveX(LevelHandler.Instance.destination.transform.position.x, setting.toFinishingDuration)
-			.OnComplete((() => {
+			.OnUpdate(() => {
+				if (rb.velocity == Vector3.zero){
+					var position = stateMachine.player.transform.position;
+					stateMachine.player.transform.position = new Vector3(position.x, 0, position.z);
+				}
+			})
+			.OnComplete(() => {
 				finishedX = true;
-			}));
+			});
 		
 		player.transform.DOMoveZ(LevelHandler.Instance.destination.transform.position.z, setting.toFinishingDuration)
-			.OnComplete((() => {
+			.OnUpdate(() => {
+				if (rb.velocity == Vector3.zero){
+					var position = stateMachine.player.transform.position;
+					stateMachine.player.transform.position = new Vector3(position.x, 0, position.z);
+				}
+			})
+			.OnComplete(() => {
 				finishedZ = true;
-			}));
+			});
 	}
 
 	private void PostFinished(Player player){

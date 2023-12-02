@@ -3,11 +3,11 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 public class CameraHandler : Handler<CameraHandler>{
+	public GameplayCamera _gameplayCamera;
+	
 	// PRIVATE MEMBERS
 	[SerializeField]
 	private Camera mainCamera;
-	[SerializeField] 
-	private GameplayCamera _gameplayCamera;
 
 	// MonoBehavior INTERFACE
 	private void OnValidate(){

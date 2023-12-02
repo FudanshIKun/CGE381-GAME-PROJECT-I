@@ -347,6 +347,7 @@ MonoBehaviour:
   offset: 0
   height: 0
   travelledDst: 0
+  stumblePoint: {x: 0, y: 0, z: 0}
   currentFallen: {fileID: 0}
   <Copter>k__BackingField: {fileID: 66993047078494047}
   <RB>k__BackingField: {fileID: 7386853371189053190}
@@ -355,6 +356,7 @@ MonoBehaviour:
   <GroundCollider>k__BackingField: {fileID: 2360013735234153647}
   <BodyCollider>k__BackingField: {fileID: 30668258875925867}
   <StateMachine>k__BackingField:
+    debugState: 0
     speedAcc: 0
     flyUpAcc: 0
     targetOffset: 0
@@ -367,8 +369,8 @@ MonoBehaviour:
     <offsetAcceleration>k__BackingField: 1
     <maxOffset>k__BackingField: 3
     <jumpVelocity>k__BackingField: 4.5
-    <floatRay>k__BackingField: 0.6
-    <floatHeight>k__BackingField: 0.25
+    <floatRay>k__BackingField: 0.15
+    <floatHeight>k__BackingField: 0.35
     <flyHeight>k__BackingField: 3
     <flyupSpeed>k__BackingField: 2
     <flyDuration>k__BackingField: 5

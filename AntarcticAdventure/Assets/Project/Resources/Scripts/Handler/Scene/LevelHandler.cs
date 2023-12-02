@@ -139,7 +139,7 @@ public sealed class LevelHandler : Handler<LevelHandler>{
 
 	public void LoadMapStage(){
 		SceneManager.LoadScene(GameManager.Scenes.Map.ToString());
-	}
+    }
 
 	public void LoadEnding(){
 		SceneManager.LoadScene(GameManager.Scenes.Ending.ToString());

@@ -10,7 +10,6 @@ public sealed class Flag : MonoBehaviour{
 	private float _raiseDuration;
 
 	// PUBLIC METHODS
-	public void RaiseFlag(){
-		flag.transform.DOMove(_raisePoint.position, _raiseDuration);
-	}
+	public void RaiseFlag()
+		=> flag.transform.DOMove(_raisePoint.position, _raiseDuration);
 }

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Flag
+  m_Name: MT_Flag
   m_Shader: {fileID: -6465566751694194690, guid: b471784ff163d644fbbb1c0d3e46dd66,
     type: 3}
   m_Parent: {fileID: 0}
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Color:
-        m_Texture: {fileID: 2800000, guid: 3246d4d2e5c84084c9dc570eb5fb598e, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 0.3
+    - _Amplitude: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.309

@@ -51,8 +51,8 @@ public sealed class SoundManager : MonoBehaviour{
 		music_enabled = value;
 	}
 	
-	public void PlaySound(SoundType type, AudioClip clip){
-		switch (type){
+	public void PlaySound(SoundType soundType, AudioClip clip){
+		switch (soundType){
 			case SoundType.Music:
 				Debug.Log("[SoundManager] PlaySound (Music)");
 				musicSource.clip = clip;

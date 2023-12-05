@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Rendering;
 
 public abstract class Handler<H> : MonoBehaviour where H : Handler<H>{
 	protected static bool AutoCreateInstance;

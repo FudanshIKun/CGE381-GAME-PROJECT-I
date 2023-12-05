@@ -17,7 +17,6 @@ public sealed class Player : MonoBehaviour{
 	public float   offset;
 	public float   height;
 	public float   travelledDst;
-	public Vector3 stumblePoint;
 	public Fallen  currentFallen;
 	
 	[field: SerializeField]

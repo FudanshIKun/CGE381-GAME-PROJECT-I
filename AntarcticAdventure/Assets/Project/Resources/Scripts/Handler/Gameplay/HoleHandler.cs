@@ -32,6 +32,9 @@ public sealed class HoleHandler : Handler<HoleHandler>{
 					var rotation = Curve.GetTangentByDistance(h.distance);
 					h.transform.rotation = Quaternion.LookRotation(rotation);
 					h.transform.position = new Vector3(point.x, groundLevel, point.z) + h.transform.right * h.offset;
+					
+					var index = Holes.FindIndex(x => x == h);
+					h.transform.SetSiblingIndex(index);
 				}
 			
 			Holes = holeSet.ToList();

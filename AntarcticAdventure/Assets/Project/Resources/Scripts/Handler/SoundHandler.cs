@@ -130,8 +130,12 @@ public sealed class SoundHandler : Handler<SoundHandler>{
 		
 		if (tg_sfx != null){
 			tg_sfx.OnToggleOnCallback.Event.AddListener(() => SoundManager.Instance.sfxSource.mute = false);
+			tg_sfx.OnToggleOnCallback.Event.AddListener(() => SoundManager.Instance.playerAmbientSource.mute = false);
+			tg_sfx.OnToggleOnCallback.Event.AddListener(() => SoundManager.Instance.OtherAmbientSource.mute = false);
 			tg_sfx.OnToggleOnCallback.Event.AddListener(() => SoundManager.Instance.ToggleSfxVolume(true));
 			tg_sfx.OnToggleOffCallback.Event.AddListener(() => SoundManager.Instance.sfxSource.mute = true);
+			tg_sfx.OnToggleOffCallback.Event.AddListener(() => SoundManager.Instance.playerAmbientSource.mute = true);
+			tg_sfx.OnToggleOffCallback.Event.AddListener(() => SoundManager.Instance.OtherAmbientSource.mute = true);
 			tg_sfx.OnToggleOffCallback.Event.AddListener(() => SoundManager.Instance.ToggleSfxVolume(false));
 		}
 	}

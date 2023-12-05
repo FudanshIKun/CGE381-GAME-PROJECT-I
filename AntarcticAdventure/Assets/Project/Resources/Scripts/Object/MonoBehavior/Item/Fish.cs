@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
 [ExecuteInEditMode]
 public sealed class Fish : Interactable{
 	// PUBLIC MEMBERS
-	[Header("Status")]
-	public bool hasCollected;
-	[Header("Setting")] 
+	[Header("Setting")]
+
+	public Hole parentHole;
 	public Transform dropTransform;
-	public float dropOffset;
-	
-	public int   plusScore    = 5;
-	public float jumpPower    = 1;
-	public int   jumpAmount   = 1;
-	public float jumpDuration = 1;
-	public float destroyTimer = 5f;
+	public float     dropOffset;
+	public int       plusScore    = 5;
+	public float     jumpPower    = 1;
+	public int       jumpAmount   = 1;
+	public float     jumpDuration = 1;
+	public float     destroyTimer = 5f;
 	
 	// MonoBehavior INTERFACE
 	private void Update(){
@@ -27,6 +25,16 @@ public sealed class Fish : Interactable{
 				dropTransform.position = new Vector3(transform.position.x, 0, transform.position.z) 
 				                         + transform.parent.right * dropOffset;
 		}
+		
+		if (Application.isPlaying){
+			if (LevelHandler.Instance.Player.StateMachine.currentState == LevelHandler.Instance.Player.StateMachine.FlyingState)
+				if (Mathf.Abs(LevelHandler.Instance.Player.travelledDst - parentHole.distance) <= 1){
+					LevelHandler.Instance.score += plusScore;
+					LevelHandler.Instance.OnFishContact(this);
+					SoundHandler.Instance.PlayScore();
+					Destroy(gameObject);
+				}
+		}
 	}
 
 	// Interactable INTERFACE
@@ -35,7 +43,6 @@ public sealed class Fish : Interactable{
 	}
 
 	protected override void OnInteract(Player player){
-		hasCollected = true;
 		LevelHandler.Instance.score += plusScore;
 		LevelHandler.Instance.OnFishContact(this);
 		SoundHandler.Instance.PlayScore();

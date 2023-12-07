@@ -371,7 +371,7 @@ MonoBehaviour:
     <jumpVelocity>k__BackingField: 4.5
     <floatRay>k__BackingField: 0.15
     <floatHeight>k__BackingField: 0.35
-    <flyHeight>k__BackingField: 3
+    <flyHeight>k__BackingField: 2.5
     <flyupSpeed>k__BackingField: 2
     <flyDuration>k__BackingField: 5
     <stumblingDistance>k__BackingField: 1.75

@@ -46,7 +46,7 @@ public sealed class FinishedState : GroundedState{
 		player.IsFinishing = true;
 		player.transform.DOMoveX(LevelHandler.Instance.destination.transform.position.x, setting.toFinishingDuration)
 			.OnUpdate(() => {
-				if (rb.velocity == Vector3.zero){
+				if (rb.useGravity == false){
 					var position = stateMachine.player.transform.position;
 					stateMachine.player.transform.position = new Vector3(position.x, 0, position.z);
 				}
@@ -57,7 +57,7 @@ public sealed class FinishedState : GroundedState{
 		
 		player.transform.DOMoveZ(LevelHandler.Instance.destination.transform.position.z, setting.toFinishingDuration)
 			.OnUpdate(() => {
-				if (rb.velocity == Vector3.zero){
+				if (rb.useGravity == false){
 					var position = stateMachine.player.transform.position;
 					stateMachine.player.transform.position = new Vector3(position.x, 0, position.z);
 				}

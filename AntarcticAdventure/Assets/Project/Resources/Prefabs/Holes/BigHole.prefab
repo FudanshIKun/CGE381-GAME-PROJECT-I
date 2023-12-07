@@ -72,7 +72,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4452004203175228800}
   - component: {fileID: 2636827533920611804}
-  - component: {fileID: 1544658925210631683}
   - component: {fileID: 6051123890669854448}
   - component: {fileID: 2530534673955754342}
   m_Layer: 9
@@ -112,27 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <distance>k__BackingField: 0
   <offset>k__BackingField: 0
---- !u!65 &1544658925210631683
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7871374844661173544}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 20, y: 25, z: 35}
-  m_Center: {x: 0, y: 2.5, z: -17.5}
 --- !u!33 &6051123890669854448
 MeshFilter:
   m_ObjectHideFlags: 0

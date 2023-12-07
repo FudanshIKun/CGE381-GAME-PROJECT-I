@@ -30,8 +30,12 @@ public sealed class CopterHandler : Handler<CopterHandler>{
 
 					var point = Curve.InterpolateByDistance(c.distance);
 					var rotation = Curve.GetTangentByDistance(c.distance);
-					c.transform.position = new Vector3(point.x + c.offset, pickUpLevel, point.z);
+					c.transform.position = new Vector3(point.x, pickUpLevel, point.z)
+					                       + c.offset * c.transform.right;
 					c.transform.rotation = Quaternion.LookRotation(rotation);
+					
+					var index = Copters.FindIndex(x => x == c);
+					c.transform.SetSiblingIndex(index);
 				}
 			
 			Copters = copterSet.ToList();

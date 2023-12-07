@@ -16,6 +16,7 @@ public sealed class FlyingState : AirborneState{
 		rb.useGravity = false;
 		stateMachine.player.StartCoroutine(Landing(stateMachine.player));
 		stateMachine.flyUpAcc = 0f;
+		animation.SetRunning(true);
 		animation.SetFlying(true);
 		SoundHandler.Instance.StartCopter();
 	}

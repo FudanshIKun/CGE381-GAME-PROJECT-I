@@ -14,6 +14,7 @@ public sealed class FallenState : GroundedState{
 		base.OnEnter();
 		Debug.Log("[Player] has fallen into " + stateMachine.player.currentFallen.gameObject.name);
 		animation.SetRunning(true);
+		rb.useGravity = false;
 		stateMachine.player.IsFallen = true;
 		Fallen(stateMachine.player, stateMachine.player.currentFallen);
 		SoundHandler.Instance.PlayCollision();

@@ -126,6 +126,8 @@ public sealed class PlayerPrefManager : MonoBehaviour{
 		var sfx_enabled = PlayerPrefs.GetInt("sfx" + SettingPrefix,   1);
 		SoundManager.Instance.musicSource.mute = music_enabled == 0;
 		SoundManager.Instance.sfxSource.mute = sfx_enabled == 0;
+		SoundManager.Instance.playerAmbientSource.mute = sfx_enabled == 0;
+		SoundManager.Instance.OtherAmbientSource.mute = sfx_enabled == 0;
 		SoundManager.Instance.ToggleMusicVolume(music_enabled == 1);
 		SoundManager.Instance.ToggleSfxVolume(sfx_enabled == 1);
 	}

@@ -22,7 +22,7 @@ public sealed class EndingHandler : Handler<EndingHandler>{
 			if (_hasContinued)
 				return;
 			
-			if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)){
+			if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetButton("Submit")){
 				_hasContinued = true;
 				timeline.Play(endingSequence);
 			}

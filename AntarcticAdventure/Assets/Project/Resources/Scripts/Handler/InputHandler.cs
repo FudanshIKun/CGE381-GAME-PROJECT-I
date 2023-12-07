@@ -23,10 +23,10 @@ public sealed class InputHandler : Handler<InputHandler>{
 
 	private void Update(){
 		if (_controller == null){
-			IsPressingForward = Input.GetKey(KeyCode.W);
-			IsPressingLeft = Input.GetKey(KeyCode.A);
-			IsPressingRight = Input.GetKey(KeyCode.D);
-			IsPressingJump = Input.GetKeyDown(KeyCode.Space);
+			IsPressingForward = Input.GetAxis("Vertical") > 0;
+			IsPressingLeft = Input.GetAxis("Horizontal") < 0;
+			IsPressingRight = Input.GetAxis("Horizontal") > 0;
+			IsPressingJump = Input.GetButton("Jump");
 		}
 	}
 

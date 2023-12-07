@@ -98,7 +98,7 @@ public sealed class LevelHandler : Handler<LevelHandler>{
 	public void StartTimer() => startTimer = true;
 
 	public void UserNavigation(){
-		if (Input.GetKeyDown(KeyCode.Escape)){
+		if (Input.GetButton("Escape")){
 			PauseStage();
 			ctn_Pause.Show();
 		}
@@ -164,7 +164,7 @@ public sealed class LevelHandler : Handler<LevelHandler>{
 		i_fillDistance.fillAmount = dst;
 		var timeAmount = currentTime / totalTime;
 		i_fillTimer.fillAmount = timeAmount;
-		t_score.text = score.ToString().PadLeft(4, '0');
+		t_score.text = score.ToString().PadLeft(3, '0');
 	}
 	
 	private void CheckWinConditions(){

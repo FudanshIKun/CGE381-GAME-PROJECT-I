@@ -16,6 +16,8 @@ public sealed class MainMenuHandler : Handler<MainMenuHandler>{
 	[SerializeField] 
 	private UIContainer UC_MainMenu;
 	[SerializeField]
+	private UIContainer UC_TutorialNewGame;
+	[SerializeField]
 	private UIContainer UC_WarningForNewGame;
 	[SerializeField]
 	private UIContainer UC_QuestionForNewGame;
@@ -45,7 +47,7 @@ public sealed class MainMenuHandler : Handler<MainMenuHandler>{
 			UC_MainMenu.Hide();
 			UC_WarningForNewGame.Show();
 		}
-		else if (PlayerPrefManager.Instance.GetLastStageNumber() != 0 && PlayerPrefManager.Instance.GetLastStageNumber() <= 9){
+		else if (PlayerPrefManager.Instance.GetLastStageNumber() >= 0 && PlayerPrefManager.Instance.GetLastStageNumber() <= 9){
 			Debug.Log("[MainMenuHandler] QuestionNewGame");
 			SoundHandler.Instance.PlayUISubmit();
 			UC_MainMenu.Hide();
@@ -53,7 +55,8 @@ public sealed class MainMenuHandler : Handler<MainMenuHandler>{
 		}
 		else{
 			Debug.Log("[MainMenuHandler] NewGame");
-			NewGame();
+			UC_MainMenu.Hide();
+			UC_TutorialNewGame.Show();
 		}
 	}
 

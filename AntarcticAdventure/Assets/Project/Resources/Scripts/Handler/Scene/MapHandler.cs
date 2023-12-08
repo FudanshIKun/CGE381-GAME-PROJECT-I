@@ -14,6 +14,8 @@ public sealed class MapHandler : Handler<MapHandler>{
 	public PlayableDirector TimelinePlayer;
 	
 	// PRIVATE MEMBERS
+	[SerializeField]
+	private bool IsTesting;
 	[Header("Sequencing")]
 	[SerializeField]
 	private PlayableAsset OnLeave;
@@ -25,7 +27,6 @@ public sealed class MapHandler : Handler<MapHandler>{
 	[Header("Player Movement")] 
 	[SerializeField]
 	private float MoveDuration = 2f;
-
 	private int lastPoint;
 	
 	// MonoBehavior INTERFACE
@@ -45,6 +46,9 @@ public sealed class MapHandler : Handler<MapHandler>{
 					Animator, 
 					2f, 
 					onSuccess: () => {
+						if (IsTesting)
+							return;
+						
 						TimelinePlayer.Play(OnLeave);
 					},
 					2f
@@ -60,20 +64,19 @@ public sealed class MapHandler : Handler<MapHandler>{
 	// PRIVATE METHODS
 	private void Initialize(){
 		journeyLine.enabled = false;
-		lastPoint = PlayerPrefManager.Instance.GetLastStageNumber();
+		lastPoint = IsTesting ? 0 : PlayerPrefManager.Instance.GetLastStageNumber();
 		SetStartPoint(lastPoint);
 	}
 
 	private void SetStartPoint(int lastPoint){
-		var pos = Curve.ControlPointsList[lastPoint - 1].transform.position;
+		var pos = Curve.ControlPointsList[IsTesting ? 0 : lastPoint - 1].transform.position;
 		PlayerGO.transform.position = pos;
 		
-		var direction = Curve.ControlPointsList[lastPoint].transform.position - PlayerGO.transform.position;
+		var direction = Curve.ControlPointsList[IsTesting ? 1 : lastPoint].transform.position - PlayerGO.transform.position;
 		PlayerGO.transform.rotation = Quaternion.LookRotation(direction);
 	}
 	
 	private IEnumerator DrawLine(LineRenderer line, float duration = 0f, float? startDelaySec = 0f, Action onSuccess = null, float? onSuccessDelay = 0f){
-		line.enabled = true;
 		var pointCount = line.positionCount;
 		var linePoints = new Vector3[pointCount];
 		for (var i = 0; i < pointCount; i++){
@@ -83,6 +86,7 @@ public sealed class MapHandler : Handler<MapHandler>{
 		yield return new WaitForSeconds(startDelaySec ?? 0f);
 		
 		var segmentDuration = duration / pointCount;
+		line.enabled = true;
 		for (var i = 0; i < pointCount - 1; i++){
 			var initialTime = Time.time;
 			var startPos = linePoints[i];

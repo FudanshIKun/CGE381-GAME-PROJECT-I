@@ -4130,7 +4130,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.75
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -13612,10 +13612,10 @@ RectTransform:
   - {fileID: 5314749510025233010}
   m_Father: {fileID: 5312501165163016915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 12.5}
-  m_SizeDelta: {x: 1920, y: 25.000082}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5409059794795763259
 Canvas:
@@ -14843,7 +14843,7 @@ MonoBehaviour:
     <VirtualCamera>k__BackingField: {fileID: 7782438220761053581}
     IsInCinematic: 0
     ReferenceResolution: {x: 1920, y: 1080}
-    ZoomFactor: {x: 0, y: -0.5, z: 1.75}
+    ZoomFactor: {x: 0, y: -1, z: 2.5}
     player: {fileID: 1207518977298391088}
     setting:
       target: {fileID: 8957888965746204937}
@@ -20196,9 +20196,9 @@ RectTransform:
   - {fileID: 7059010861475604617}
   m_Father: {fileID: 2167670579034752015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1656.9, y: -157}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -305.1, y: -157}
   m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &230709081182426419
@@ -35532,7 +35532,7 @@ PrefabInstance:
     - target: {fileID: 2331751057236925256, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
       propertyPath: field of view
-      value: 60
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 3768146620760798530, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
@@ -35542,37 +35542,37 @@ PrefabInstance:
     - target: {fileID: 6515438214491686083, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 731.132
       objectReference: {fileID: 0}
     - target: {fileID: 6515438214491686083, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 8.403789
       objectReference: {fileID: 0}
     - target: {fileID: 6515438214491686083, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7
+      value: 1420.749
       objectReference: {fileID: 0}
     - target: {fileID: 6515438214491686083, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8926905
       objectReference: {fileID: 0}
     - target: {fileID: 6515438214491686083, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.20907806
       objectReference: {fileID: 0}
     - target: {fileID: 6515438214491686083, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.3887178
       objectReference: {fileID: 0}
     - target: {fileID: 6515438214491686083, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.09104204
       objectReference: {fileID: 0}
     - target: {fileID: 6515438214491686083, guid: b6e19201bc6bad348949025a44de7640,
         type: 3}
@@ -69805,17 +69805,17 @@ PrefabInstance:
     - target: {fileID: 1102067408019681839, guid: 79acd4a473f418e4189f6e3f405ef3c3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7
+      value: 728.432
       objectReference: {fileID: 0}
     - target: {fileID: 1102067408019681839, guid: 79acd4a473f418e4189f6e3f405ef3c3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.25
+      value: 9.153789
       objectReference: {fileID: 0}
     - target: {fileID: 1102067408019681839, guid: 79acd4a473f418e4189f6e3f405ef3c3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -80.81
+      value: 1346.939
       objectReference: {fileID: 0}
     - target: {fileID: 2400646658815633574, guid: 79acd4a473f418e4189f6e3f405ef3c3,
         type: 3}

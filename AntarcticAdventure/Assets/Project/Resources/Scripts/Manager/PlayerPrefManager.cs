@@ -41,7 +41,7 @@ public sealed class PlayerPrefManager : MonoBehaviour{
 	}
 
 	// PUBLIC METHODS
-	public int GetLastStageNumber() => PlayerPrefs.GetInt(LastStagePrefix);
+	public int GetLastStageNumber() => PlayerPrefs.GetInt(LastStagePrefix, -1);
 	
 	public void CreateRecord(){
 		// Define a mapping of enum values to PlayerPrefs keys

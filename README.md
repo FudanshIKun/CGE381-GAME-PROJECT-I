@@ -1,8 +1,4 @@
-# CGE381-Remake-Game
----
-### Member
-- 6403082 Artist#1
-- 6401702 Artist#2
-- 6401648 Programmer
----
-Education Purpose Only
+# CGE381-GAME PROJECT I
+[![](https://markdown-videos-api.jorgenkh.no/youtube/dQw4w9WgXcQ)](https://youtu.be/dQw4w9WgXcQ)
+
+Created for Education Purpose Only
